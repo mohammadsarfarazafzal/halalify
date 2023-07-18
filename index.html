@@ -1,19 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halalify</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+  </head>
+
+  <body>
     <div id="loader"></div>
-    <div class="main">
-        <div class="items">hdajfahf</div>
-        <div class="player">jsgdfha</div>
-        <div class="lyrics">sghdfkjashf</div>
+    <div class="main" id="mainid">
+      <div class="items">
+        <img src="assets/aesthetic.gif" alt="cover" class="backgif" />
+        <div class="gifoverlay"></div>
+      </div>
+      <div class="player">
+        <img alt="cover" class="backimg nasheedCover" />
+        <div class="overlay"></div>
+        <div class="card playercard" style="background: transparent">
+          <div class="card-body">
+            <h5 class="card-title nasheedName"></h5>
+            <!-- <p class="card-text">
+                        HUMOOD - KUN ANTA (كن أنت) - [VOCALS ONLY + SLOWED + REVERB].
+                    </p> -->
+            <p class="card-text" id="originallink nasheedLink">
+              <a
+                style="text-decoration: none"
+                target="_blank"
+                class="originalLink"
+                >Original</a
+              >
+            </p>
+          </div>
+          <div class="controlsmargin">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bar">
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="100"
+                  id="customRange2"
+                  value="0"
+                  step="0.001"
+                />
+              </li>
+            </ul>
+            <div class="card-body playerbtns">
+              <svg
+                class="playercontrol"
+                id="backward"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M267.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160L64 241V96c0-17.7-14.3-32-32-32S0 78.3 0 96V416c0 17.7 14.3 32 32 32s32-14.3 32-32V271l11.5 9.6 192 160z"
+                />
+              </svg>
+              <div id="masterPlay">
+                <svg
+                  id="play"
+                  class="playercontrol"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <path
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                  />
+                </svg>
+                <svg
+                  class="playercontrol"
+                  id="pause"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                  />
+                </svg>
+              </div>
+              <svg
+                class="playercontrol"
+                id="forward"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lyrics">
+        <img src="assets/aesthetic.gif" alt="cover" class="backgif" />
+        <div class="gifoverlay"></div>
+      </div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
