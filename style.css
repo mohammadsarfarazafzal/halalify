@@ -8,61 +8,172 @@ body {
 }
 
 #loader {
-    background-color: black;
-    z-index: 100;
-    height: 100vh;
+  background: url(assets/load.gif) center no-repeat;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-size: 15vw;
+}
+
+.main {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.items {
+  /* border-right: 1px white solid; */
+  width: 30vw;
+  height: 100vh;
+}
+
+.player {
+  /* border-right: 1px white solid; */
+  width: 40vw;
+  height: 100vh;
+}
+
+.backimg {
+  width: 40vw;
+  height: 100vh;
+}
+
+.backgif {
+  width: 30vw;
+  height: 100vh;
+}
+
+.overlay {
+  background: linear-gradient(to bottom right, #ff0000, #0000ff);
+  width: 40vw;
+  height: 100vh;
+  opacity: 0.5;
+  margin-top: -100vh;
+}
+
+.gifoverlay {
+  background: linear-gradient(to top right, #0000ff, #ff0000);
+  width: 30vw;
+  height: 100vh;
+  opacity: 0.5;
+  margin-top: -100vh;
+}
+
+.lyrics {
+  width: 30vw;
+  height: 100vh;
+}
+
+.playercard {
+  width: 40vw;
+  height: 100vh;
+  border-radius: 0;
+  margin-top: -100vh;
+}
+
+.playercontrol {
+  width: 1.7vw;
+  cursor: pointer;
+}
+
+.playerbtns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bar {
+  background: transparent;
+}
+
+.card-title {
+  font-size: xx-large;
+}
+
+#originallink {
+  font-size: small;
+  color: #43208f;
+}
+
+.card-text {
+  font-size: medium;
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 500px) {
+  .lyrics {
+    display: none;
+  }
+
+  .items {
+    display: none;
+  }
+
+  .player {
+    /* border-right: 1px white solid; */
     width: 100vw;
-    background: url(assets/logo.png) center no-repeat;
-    animation: animate 1350ms ease-in-out;
-    animation-iteration-count: infinite;
-    background-size: 15vw;
-    position: fixed;
-}
-
-.main{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
-.items{
-    border-color: wheat;
-    border-width: 25px;
-    border: solid;
-    width: 33vw;
     height: 100vh;
-    color: white;
-}
+  }
 
-.player{
-    border-color: wheat;
-    width: 33vw;
+  .backimg {
+    width: 100vw;
     height: 100vh;
-    color: white;
-}
+  }
 
-.lyrics{
-    border-color: wheat;
-    width: 33vw;
+  .overlay {
+    background: linear-gradient(to bottom right, #ff0000, #0000ff);
+    width: 100vw;
     height: 100vh;
-    color: white;
+    opacity: 0.5;
+  }
+
+  .playercard {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    margin-top: -100vh;
+  }
+
+  .playercontrol {
+    width: 5vw;
+    cursor: pointer;
+  }
 }
 
-@keyframes animate {
-    0%{
-        transform: rotate(0deg);
-    }
-    25%{
-        transform: rotate(90deg);
-    }
-    50%{
-        transform: rotate(180deg);
-    }
-    75%{
-        transform: rotate(270deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+@media only screen and (min-width: 501px) and (max-width: 950px) {
+  .lyrics {
+    display: none;
+  }
+
+  .items {
+    display: none;
+  }
+
+  .player {
+    /* border-right: 1px white solid; */
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .backimg {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .overlay {
+    background: linear-gradient(to bottom right, #ff0000, #0000ff);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.5;
+  }
+
+  .playercard {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    margin-top: -100vh;
+  }
+
+  .playercontrol {
+    width: 5vw;
+    cursor: pointer;
+  }
 }
