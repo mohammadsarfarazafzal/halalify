@@ -73,6 +73,7 @@ body {
 .playercontrol {
   width: 1.7vw;
   cursor: pointer;
+fill: white;
 }
 
 .playerbtns {
@@ -86,6 +87,7 @@ body {
 
 .card-title {
   font-size: xx-large;
+color: white;
 }
 
 #originallink {
