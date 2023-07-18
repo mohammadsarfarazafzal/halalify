@@ -37,7 +37,21 @@ let nasheeds = [
     coverPath: "assets/astagfirullah.jpg",
     originalLink: "https://youtu.be/caeTvZrlVTo",
   },
+  {
+    nasheedName: "Ya Adheeman",
+    filePath: "assets/adheeman.mp3",
+    coverPath: "assets/adheeman.jpg",
+    originalLink: "https://youtu.be/71hi9H6fZuc",
+  },
+  {
+    nasheedName: "Al Hamdulillah",
+    filePath: "assets/alhamdulillah.mp3",
+    coverPath: "assets/alhamdulillah.jpg",
+    originalLink: "https://youtu.be/mD81D8o8cMs",
+  },
 ];
+
+console.log(nasheeds.length);
 
 nasheedItems.forEach((element, i) => {
   console.log(element, i);
@@ -49,8 +63,13 @@ nasheedItems.forEach((element, i) => {
 
 nasheedItems.forEach((element, i) => {
   forwards.addEventListener("click", () => {
+    i++;
+    if (i == nasheeds.length) {
+      i = 0;
+    }
+    console.log(i);
     element.getElementsByClassName("nasheedCover")[0].src =
-      nasheeds[++i].coverPath;
+      nasheeds[i].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
       nasheeds[i].nasheedName;
     element.getElementsByClassName("originalLink")[0].href =
@@ -60,16 +79,15 @@ nasheedItems.forEach((element, i) => {
     nasheed.play();
     pauses.style.display = "unset";
     plays.style.display = "none";
-    if (i > nasheedItems.length) {
-      i = -1;
-    }
   });
   backwards.addEventListener("click", () => {
-    if (i == 0) {
-      i = nasheeds.length;
+    i--;
+    if (i < 0) {
+      i = nasheeds.length - 1;
     }
+    console.log(i);
     element.getElementsByClassName("nasheedCover")[0].src =
-      nasheeds[--i].coverPath;
+      nasheeds[i].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
       nasheeds[i].nasheedName;
     element.getElementsByClassName("originalLink")[0].href =
@@ -92,10 +110,6 @@ masterPlay.addEventListener("click", () => {
     plays.style.display = "unset";
     pauses.style.display = "none";
   }
-});
-
-forwards.addEventListener("click", () => {
-  nasheedIndex++;
 });
 
 nasheed.addEventListener("timeupdate", () => {
