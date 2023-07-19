@@ -49,6 +49,12 @@ let nasheeds = [
     coverPath: "assets/alhamdulillah.jpg",
     originalLink: "https://youtu.be/mD81D8o8cMs",
   },
+  {
+    nasheedName: "Rahmatun Lil’Alameen",
+    filePath: "assets/rehmat.mp3",
+    coverPath: "assets/rehmat.jpg",
+    originalLink: "https://youtu.be/tBbdSzwxqyY",
+  },
 ];
 
 console.log(nasheeds.length);
