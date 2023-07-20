@@ -5,18 +5,21 @@ var pauses = document.getElementById("pause");
 var plays = document.getElementById("play");
 var forwards = document.getElementById("forward");
 var backwards = document.getElementById("backward");
-pause.style.display = "none";
-main.style.display = "none";
-window.addEventListener("load", () => {
-  loader.style.display = "none";
-  main.style.display = "flex";
-});
-
+var loops = document.getElementById("loop");
 let nasheed = new Audio("assets/kun_anta.mp3");
 let masterPlay = document.getElementById("masterPlay");
 let nasheedIndex = 0;
 let bar = document.getElementById("customRange2");
 let nasheedItems = Array.from(document.getElementsByClassName("player"));
+var cbox = document.getElementById("cb");
+
+pause.style.display = "none";
+main.style.display = "none";
+
+window.addEventListener("load", () => {
+  loader.style.display = "none";
+  main.style.display = "flex";
+});
 
 let nasheeds = [
   {
@@ -59,15 +62,47 @@ let nasheeds = [
 
 console.log(nasheeds.length);
 
+//loop logic
+
+cbox.addEventListener("change", () => {
+  if (cbox.checked == true) {
+    nasheed.loop = true;
+    loops.style.fill = "#1d6df7";
+  } else {
+    nasheed.loop = false;
+    loops.style.fill = "white";
+  }
+});
+
+//nasheed change logic
+
 nasheedItems.forEach((element, i) => {
   console.log(element, i);
   element.getElementsByClassName("nasheedCover")[0].src = nasheeds[i].coverPath;
   element.getElementsByClassName("nasheedName")[0].innerText =
     nasheeds[i].nasheedName;
   element.getElementsByTagName("a")[0].href = nasheeds[i].originalLink;
-});
-
-nasheedItems.forEach((element, i) => {
+  nasheed.addEventListener("timeupdate", () => {
+    console.log("auto");
+    if (nasheed.currentTime == nasheed.duration) {
+      i++;
+      if (i == nasheeds.length) {
+        i = 0;
+      }
+      console.log(i);
+      element.getElementsByClassName("nasheedCover")[0].src =
+        nasheeds[i].coverPath;
+      element.getElementsByClassName("nasheedName")[0].innerText =
+        nasheeds[i].nasheedName;
+      element.getElementsByClassName("originalLink")[0].href =
+        nasheeds[i].originalLink;
+      nasheed.src = nasheeds[i].filePath;
+      nasheed.currentTime = 0;
+      nasheed.play();
+      pauses.style.display = "unset";
+      plays.style.display = "none";
+    }
+  });
   forwards.addEventListener("click", () => {
     i++;
     if (i == nasheeds.length) {
@@ -86,6 +121,7 @@ nasheedItems.forEach((element, i) => {
     pauses.style.display = "unset";
     plays.style.display = "none";
   });
+
   backwards.addEventListener("click", () => {
     i--;
     if (i < 0) {
@@ -106,6 +142,8 @@ nasheedItems.forEach((element, i) => {
   });
 });
 
+//nasheed is getting played and paused
+
 masterPlay.addEventListener("click", () => {
   if (nasheed.paused) {
     nasheed.play();
@@ -118,6 +156,8 @@ masterPlay.addEventListener("click", () => {
   }
 });
 
+//bar is updating with respect to nasheed time
+
 nasheed.addEventListener("timeupdate", () => {
   // progress = parseInt((nasheed.currentTime/nasheed.duration)*100);
   progress = parseFloat((nasheed.currentTime / nasheed.duration) * 100.0);
@@ -127,6 +167,8 @@ nasheed.addEventListener("timeupdate", () => {
     pauses.style.display = "none";
   }
 });
+
+//Changing bar will change nasheed current time
 
 bar.addEventListener("change", () => {
   nasheed.currentTime = (bar.value * nasheed.duration) / 100;
