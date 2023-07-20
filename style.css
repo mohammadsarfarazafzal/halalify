@@ -73,7 +73,7 @@ body {
 .playercontrol {
   width: 1.7vw;
   cursor: pointer;
-fill: white;
+  fill: white;
 }
 
 .playerbtns {
@@ -87,17 +87,21 @@ fill: white;
 
 .card-title {
   font-size: xx-large;
-color: white;
+  color: white;
 }
 
 #originallink {
   font-size: small;
-  color: #43208f;
+  color: #1d6df7;
 }
 
 .card-text {
   font-size: medium;
   color: aliceblue;
+}
+
+#cb {
+  display: none;
 }
 
 @media only screen and (max-width: 500px) {
