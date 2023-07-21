@@ -6,3 +6,5 @@ Halalify provides a seamless and immersive experience, allowing users to listen 
 With Halalify, you can explore and enjoy an extensive library of nasheeds, making it an ideal platform for those seeking spiritual relaxation and inspiration. Whether you're studying, working, or simply unwinding, Halalify aims to be your go-to destination for soulful listening.
 
 I invite you to check out Halalify and experience the beauty of nasheeds like never before. Your feedback and support mean the world to me as I continue to improve and enhance this project. Let's connect and share the joy of Halalify together! 🎶🎧
+
+The site is for educational purposes only. Fair Use Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
