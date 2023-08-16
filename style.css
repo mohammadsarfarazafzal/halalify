@@ -7,9 +7,30 @@ body {
   background-color: black;
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 1rem;
+  border-radius: 100vw;
+  background-color: white;
+  border: 0rem solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1d6df7;
+  background-clip: content-box;
+}
+
 #loader {
   background: url(assets/load.gif) center no-repeat;
-  z-index: 99;
   width: 100vw;
   height: 100vh;
   background-size: 15vw;
@@ -21,13 +42,12 @@ body {
 }
 
 .items {
-  /* border-right: 1px white solid; */
   width: 30vw;
   height: 100vh;
+  position: relative;
 }
 
 .player {
-  /* border-right: 1px white solid; */
   width: 40vw;
   height: 100vh;
 }
@@ -40,6 +60,8 @@ body {
 .backgif {
   width: 30vw;
   height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .overlay {
@@ -56,6 +78,8 @@ body {
   height: 100vh;
   opacity: 0.5;
   margin-top: -100vh;
+  position: relative;
+  z-index: 2;
 }
 
 .lyrics {
@@ -95,7 +119,7 @@ body {
   color: white;
 }
 
-#originallink {
+.originalLink {
   font-size: small;
   color: #1d6df7;
 }
@@ -113,32 +137,128 @@ body {
   margin-top: -100vh;
   height: 100vh;
   overflow-y: scroll;
+  position: relative;
+  z-index: 3;
 }
 
 .initem {
+  padding-top: 1%;
+  padding-bottom: 1%;
   background-color: transparent;
-  margin-top: 1%;
-  margin-left: 5%;
+  border: 0.1px solid #495057;
   border-left: transparent;
   border-right: transparent;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  margin-left: 3%;
   width: 27vw;
-  height: 19vh;
+  height: 21vh;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.inflex {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
 }
 
 .album {
-  width: 100%;
-  height: 19vh;
+  border-radius: 5px;
+  width: 9vw;
+  height: 100%;
 }
 
 .playalbum {
   cursor: pointer;
 }
 
-.navbar {
+.list {
   display: none;
+  overflow-y: scroll;
+  top: 0;
+  left: 100%;
+  transition: 0.3s;
+  height: 100px;
 }
 
-@media only screen and (max-width: 500px) {
+.duration {
+  font-size: small;
+}
+
+.ham {
+  width: 35px;
+  display: none;
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  position: relative;
+}
+
+.ham .hambar,
+.ham:after,
+.ham:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0px;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.ham.active:after {
+  transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.ham.active:before {
+  transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.ham.active .hambar {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 950px) {
+  .ham {
+    width: 35px;
+    display: block;
+    cursor: pointer;
+    border: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    position: relative;
+  }
+
+  .ham .hambar,
+  .ham:after,
+  .ham:before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0px;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  .ham.active:after {
+    transform: rotate(45deg) translate(-9px, -8px);
+  }
+
+  .ham.active:before {
+    transform: rotate(-45deg) translate(-8px, 6px);
+  }
+
+  .ham.active .hambar {
+    opacity: 0;
+  }
+
   .lyrics {
     display: none;
   }
@@ -148,7 +268,6 @@ body {
   }
 
   .player {
-    /* border-right: 1px white solid; */
     width: 100vw;
     height: 100vh;
   }
@@ -177,110 +296,62 @@ body {
     cursor: pointer;
   }
 
-  .navbar {
-    display: unset;
-    background-color: transparent;
+  .list {
+    display: none;
+    transition: 0.3s;
+    display: none;
+    overflow-y: scroll;
+    height: 61vh;
+    overflow-y: scroll;
+    transition: 0.3s;
   }
+
+  .list.active {
+    display: flex;
+    flex-direction: column;
+  }
+
   .nav {
     display: flex;
     justify-content: space-between;
   }
+
   .mobinitem {
+    padding-top: 1%;
+    padding-bottom: 1%;
     background-color: transparent;
-    /* margin-top: 1%; */
-    margin-left: 1%;
+    border: 0.1px solid #495057;
     border-left: transparent;
     border-right: transparent;
-    width: 23vw;
-    height: 11vh;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    width: 47vw;
+    height: 27vh;
+    display: flex;
+    justify-content: flex-start;
   }
+
   .album {
-    width: 100%;
-    height: 11vh;
-  }
-
-  .offcanvas {
-    background-color: transparent;
-  }
-
-  #offcanvasDarkNavbarLabel {
-    color: white;
+    border-radius: 5px;
+    width: 9vw;
+    height: 100%;
   }
 
   .mobplayalbum {
     cursor: pointer;
   }
-}
 
-@media only screen and (min-width: 501px) and (max-width: 950px) {
-  .lyrics {
-    display: none;
-  }
-
-  .items {
-    display: none;
-  }
-
-  .player {
-    /* border-right: 1px white solid; */
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .backimg {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .overlay {
-    background: linear-gradient(to bottom right, #ff0000, #0000ff);
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.5;
-  }
-
-  .playercard {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    margin-top: -100vh;
-  }
-
-  .playercontrol {
-    width: 5vw;
-    cursor: pointer;
-  }
-  .navbar {
-    display: unset;
-    background-color: transparent;
-  }
-  .nav {
-    display: flex;
-    justify-content: space-between;
-  }
-  .mobinitem {
-    background-color: transparent;
-    /* margin-top: 1%; */
-    margin-left: 1%;
-    border-left: transparent;
-    border-right: transparent;
-    width: 37vw;
-    height: 19vh;
-  }
-  .album {
-    width: 100%;
-    height: 19vh;
-  }
-
-  .offcanvas {
-    background-color: transparent;
-  }
-
-  #offcanvasDarkNavbarLabel {
+  .title {
+    font-size: small;
     color: white;
   }
 
-  .mobplayalbum {
-    cursor: pointer;
+  .originalLink {
+    font-size: x-small;
+    color: #1d6df7;
+  }
+
+  .duration {
+    font-size: x-small;
   }
 }
