@@ -133,6 +133,10 @@ body {
   display: none;
 }
 
+.hide{
+  display: none;
+}
+
 .item {
   margin-top: -100vh;
   height: 100vh;
@@ -152,7 +156,7 @@ body {
   margin-bottom: 1%;
   margin-left: 3%;
   width: 27vw;
-  height: 21vh;
+  height: 27vh;
   display: flex;
   justify-content: flex-start;
 }
@@ -165,7 +169,7 @@ body {
 
 .album {
   border-radius: 5px;
-  width: 9vw;
+  width: 11vw;
   height: 100%;
 }
 
@@ -333,7 +337,7 @@ body {
 
   .album {
     border-radius: 5px;
-    width: 15vw;
+    width: 17vw;
     height: 100%;
   }
 
