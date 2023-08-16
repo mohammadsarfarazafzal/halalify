@@ -14,8 +14,17 @@ let nasheedIndex = 0;
 let bar = document.getElementById("customRange2");
 let nasheedItems = Array.from(document.getElementsByClassName("player"));
 let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
-let nasheedMobInItems = Array.from(document.getElementsByClassName("mobinitem"));
+let nasheedMobInItems = Array.from(
+  document.getElementsByClassName("mobinitem")
+);
 var cbox = document.getElementById("cb");
+const hbar = document.querySelector(".ham");
+const mnav = document.querySelector(".list");
+
+hbar.addEventListener("click", () => {
+  hbar.classList.toggle("active");
+  mnav.classList.toggle("active");
+});
 
 pause.style.display = "none";
 main.style.display = "none";
