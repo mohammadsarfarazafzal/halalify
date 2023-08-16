@@ -71,7 +71,7 @@ let nasheeds = [
     nasheedDuration: "02:47",
   },
   {
-    nasheedName: "The Beauty of Existence",
+    nasheedName: "Beauty of Existence",
     filePath: "assets/beauty.mp3",
     coverPath: "assets/beauty.jpg",
     originalLink: "https://youtu.be/NrsCej6SVxM",
