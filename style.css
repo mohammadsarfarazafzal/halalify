@@ -235,9 +235,9 @@ body {
   justify-content: space-evenly;
 }
 
-#loop {
+/* #loop {
   margin-top: 4.7px;
-}
+} */
 
 .nasheedtitle {
   font-size: xx-large;
@@ -453,9 +453,9 @@ body {
     cursor: pointer;
   }
 
-  #masterPlay {
+/*   #masterPlay {
     margin-top: 5px;
-  }
+  } */
 
   .playerbtns {
     height: 31%;
@@ -463,9 +463,9 @@ body {
     justify-content: space-evenly;
   }
 
-  #loop {
+/*   #loop {
     margin-top: 9px;
-  }
+  } */
 
   .list {
     height: 75vh;
