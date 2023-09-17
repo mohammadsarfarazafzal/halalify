@@ -11,15 +11,19 @@ body {
 }
 
 ::-webkit-scrollbar {
+  display: none;
+}
+
+.item::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-::-webkit-scrollbar-track {
+.item::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 100vw;
 }
 
-::-webkit-scrollbar-thumb {
+.item::-webkit-scrollbar-thumb {
   width: 1rem;
   border-radius: 100vw;
   background-color: transparent;
@@ -27,7 +31,7 @@ body {
   background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.item::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #0000ff, #ff0000);
   border-color: white;
   background-clip: content-box;
@@ -47,26 +51,28 @@ body {
 
 .items {
   width: 30vw;
-  height: 100vh;
+  height: 99.5vh;
   position: relative;
 }
 
 .player {
   width: 40vw;
-  height: 100vh;
+  height: 99.5vh;
   position: relative;
 }
 
 .backimg {
   width: 40vw;
-  height: 100vh;
+  height: 99.5vh;
 }
 
 .backgif {
   width: 30vw;
-  height: 100vh;
+  height: 99.5vh;
   position: relative;
   z-index: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .overlay {
@@ -74,9 +80,10 @@ body {
   width: 40vw;
   height: 100vh;
   opacity: 0.3;
-  margin-top: -100.7vh;
+  margin-top: -100.5vh;
+  padding: 0;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .gifoverlay {
@@ -84,14 +91,15 @@ body {
   width: 30vw;
   height: 100vh;
   opacity: 0.5;
-  margin-top: -100.7vh;
+  margin-top: -100.5vh;
+  padding: 0;
   position: relative;
   z-index: 2;
 }
 
 .lyrics {
   width: 30vw;
-  height: 100vh;
+  height: 99.5vh;
 }
 
 .playercard {
@@ -102,7 +110,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 .nav {
@@ -117,7 +125,7 @@ body {
 .info {
   display: flex;
   flex-direction: column;
-  padding: 17px 5px;
+  padding: 17px 9px;
 }
 
 .list {
@@ -393,19 +401,16 @@ body {
 
   .player {
     width: 100vw;
-    height: 100vh;
   }
 
   .backimg {
     width: 100vw;
-    height: 100vh;
   }
 
   .overlay {
     background: linear-gradient(to bottom right, #ff0000, #0000ff);
     width: 100vw;
-    height: 100vh;
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   .nasheedtitle {
@@ -446,6 +451,16 @@ body {
   .playercontrol {
     width: 25px;
     cursor: pointer;
+  }
+
+  #masterPlay {
+    margin-top: 5px;
+  }
+
+  .playerbtns {
+    height: 31%;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   #loop {
@@ -509,5 +524,45 @@ body {
 
   .duration {
     font-size: x-small;
+  }
+  .fillbar {
+    display: none;
+  }
+  .filler {
+    display: none;
+  }
+
+  .sliderbar {
+    position: relative;
+    z-index: 2;
+    -webkit-appearance: none;
+    width: 95%;
+    border-radius: 5px;
+    height: 7px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    margin-left: 10.9px;
+  }
+
+  .sliderbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(226, 74, 125);
+  }
+
+  .sliderbar::-webkit-slider-thumb:hover {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
+    background-color: rgb(255, 0, 85);
   }
 }
