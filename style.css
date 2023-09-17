@@ -8,6 +8,7 @@
 
 body {
   background-color: black;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -51,24 +52,27 @@ body {
 
 .items {
   width: 30vw;
-  height: 99.5vh;
+  height: 100vh;
   position: relative;
 }
 
 .player {
   width: 40vw;
-  height: 99.5vh;
+  height: 100vh;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .backimg {
+  padding: 0;
   width: 40vw;
-  height: 99.5vh;
+  height: 100vh;
 }
 
 .backgif {
   width: 30vw;
-  height: 99.5vh;
+  height: 100vh;
   position: relative;
   z-index: 1;
   margin: 0;
@@ -80,10 +84,10 @@ body {
   width: 40vw;
   height: 100vh;
   opacity: 0.3;
-  margin-top: -100.5vh;
   padding: 0;
   position: relative;
   z-index: 1;
+  margin-top: -100.7vh;
 }
 
 .gifoverlay {
@@ -91,15 +95,15 @@ body {
   width: 30vw;
   height: 100vh;
   opacity: 0.5;
-  margin-top: -100.5vh;
   padding: 0;
   position: relative;
   z-index: 2;
+  margin-top: -100.7vh;
 }
 
 .lyrics {
   width: 30vw;
-  height: 99.5vh;
+  height: 100vh;
 }
 
 .playercard {
@@ -117,7 +121,7 @@ body {
   background-color: transparent;
   width: 40vw;
   height: 13vh;
-  position: fixed;
+  position: sticky;
   display: flex;
   justify-content: space-between;
 }
@@ -137,7 +141,7 @@ body {
 .controls {
   background-color: transparent;
   width: 40vw;
-  height: 15vh;
+  height: 79px;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -147,7 +151,7 @@ body {
 .fillbar {
   position: absolute;
   z-index: 1;
-  top: 17.7px;
+  top: 15.5px;
   left: 10.9px;
   width: 95%;
   border-radius: 5px;
@@ -176,6 +180,62 @@ body {
   outline: none;
   background: transparent;
   margin-left: 10.9px;
+}
+
+@supports (-moz-appearance: none) {
+  .sliderbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(226, 74, 125);
+  }
+
+  .sliderbar::-webkit-slider-thumb:hover {
+    -webkit-appearance: none;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
+    background-color: rgb(255, 0, 85);
+  }
+  .fillbar {
+    position: absolute;
+    z-index: 1;
+    top: 18px;
+    left: 10.9px;
+    width: 95%;
+    border-radius: 5px;
+    height: 7px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  .filler {
+    display: block;
+    width: 0%;
+    height: 7px;
+    border-radius: 5px;
+    animation: breathing 7s linear infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .sliderbar {
+    position: relative;
+    z-index: 2;
+    -webkit-appearance: none;
+    width: 95%;
+    border-radius: 5px;
+    height: 7px;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    margin-left: 10.9px;
+  }
 }
 
 .sliderbar::-webkit-slider-thumb {
@@ -225,19 +285,15 @@ body {
 
 .playercontrol {
   width: 25px;
+  height: 19px;
   cursor: pointer;
   fill: white;
 }
 
 .playerbtns {
-  height: 43%;
   display: flex;
   justify-content: space-evenly;
 }
-
-/* #loop {
-  margin-top: 4.7px;
-} */
 
 .nasheedtitle {
   font-size: xx-large;
@@ -355,6 +411,9 @@ body {
 }
 
 @media only screen and (max-width: 950px) {
+  body {
+    background-color: black;
+  }
   .ham {
     width: 35px;
     display: block;
@@ -433,7 +492,7 @@ body {
   .nav {
     background-color: transparent;
     width: 100vw;
-    height: 13vh;
+    height: 85px;
     position: sticky;
   }
 
@@ -444,8 +503,11 @@ body {
   .controls {
     background-color: transparent;
     width: 100vw;
-    height: 19vh;
+    height: 75px;
     position: sticky;
+    justify-content: center;
+    padding: 0;
+    margin-top: 19px;
   }
 
   .playercontrol {
@@ -453,23 +515,14 @@ body {
     cursor: pointer;
   }
 
-/*   #masterPlay {
-    margin-top: 5px;
-  } */
-
   .playerbtns {
-    height: 31%;
+    margin-top: 9px;
     display: flex;
     justify-content: space-evenly;
   }
 
-/*   #loop {
-    margin-top: 9px;
-  } */
-
   .list {
     height: 75vh;
-    /* transition: 0.3s; */
     overflow-y: scroll;
   }
 
@@ -542,7 +595,7 @@ body {
     cursor: pointer;
     outline: none;
     background: white;
-    margin-left: 10.9px;
+    margin-bottom: 13px;
   }
 
   .sliderbar::-webkit-slider-thumb {
