@@ -8,7 +8,6 @@
 
 body {
   background-color: black;
-  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -348,10 +347,6 @@ body {
 }
 
 @media only screen and (max-width: 950px) {
-body {
-  background-color: black;
-  overflow: visible;
-}
   .ham {
     width: 35px;
     display: block;
