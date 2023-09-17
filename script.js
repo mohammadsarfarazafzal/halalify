@@ -1,30 +1,8 @@
-//alert("BISMILLAH");
+// alert("BISMILLAH");
 var loader = document.getElementById("loader");
 var main = document.getElementById("mainid");
 var pauses = document.getElementById("pause");
 var plays = document.getElementById("play");
-var playAlbum = Array.from(document.getElementsByClassName("playalbum"));
-var playMobAlbum = Array.from(document.getElementsByClassName("mobplayalbum"));
-var forwards = document.getElementById("forward");
-var backwards = document.getElementById("backward");
-var loops = document.getElementById("loop");
-let nasheed = new Audio("assets/wayoftears.mp3");
-let masterPlay = document.getElementById("masterPlay");
-let nasheedIndex = 0;
-let bar = document.getElementById("customRange2");
-let nasheedItems = Array.from(document.getElementsByClassName("player"));
-let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
-let nasheedMobInItems = Array.from(
-  document.getElementsByClassName("mobinitem")
-);
-var cbox = document.getElementById("cb");
-const hbar = document.querySelector(".ham");
-const mnav = document.querySelector(".list");
-
-hbar.addEventListener("click", () => {
-  hbar.classList.toggle("active");
-  mnav.classList.toggle("active");
-});
 
 pause.style.display = "none";
 main.style.display = "none";
@@ -35,6 +13,13 @@ window.addEventListener("load", () => {
 });
 
 let nasheeds = [
+  {
+    nasheedName: "Asma-ul-Husna",
+    filePath: "assets/asmaulhasna.mp3",
+    coverPath: "assets/asmaulhasnacover.jpg",
+    originalLink: "https://youtu.be/e-KygsbNVGk?si=XKPRQTUK5jdW6Qa0",
+    nasheedDuration: "03:36",
+  },
   {
     nasheedName: "The Way Of Tears",
     filePath: "assets/wayoftears.mp3",
@@ -48,6 +33,13 @@ let nasheeds = [
     coverPath: "assets/astagfirullah.jpg",
     originalLink: "https://youtu.be/caeTvZrlVTo",
     nasheedDuration: "03:38",
+  },
+  {
+    nasheedName: "Without You",
+    filePath: "assets/without.mp3",
+    coverPath: "assets/withoutcover.jpg",
+    originalLink: "https://youtu.be/WRW8ao2AtDU?si=2oGzZF2YiUY8GgGc",
+    nasheedDuration: "03:02",
   },
   {
     nasheedName: "Ya Adheeman",
@@ -71,6 +63,20 @@ let nasheeds = [
     nasheedDuration: "02:47",
   },
   {
+    nasheedName: "Soldiers of ALLAH",
+    filePath: "assets/jundullah.mp3",
+    coverPath: "assets/jundullahcover.jpg",
+    originalLink: "https://youtu.be/Dy4YSBA6P5Q?si=0DZDZSP59ef6n0ZT",
+    nasheedDuration: "04:22",
+  },
+  {
+    nasheedName: "Qalu Innaha Waad",
+    filePath: "assets/promise.mp3",
+    coverPath: "assets/promisecover.jpg",
+    originalLink: "https://youtu.be/Gqxyvee566M?si=_Xc23IZNj6y-Ng9y",
+    nasheedDuration: "02:44",
+  },
+  {
     nasheedName: "Beauty of Existence",
     filePath: "assets/beauty.mp3",
     coverPath: "assets/beauty.jpg",
@@ -78,7 +84,7 @@ let nasheeds = [
     nasheedDuration: "04:21",
   },
   {
-    nasheedName: "My Hope (Allah)",
+    nasheedName: "My Hope (ALLAH)",
     filePath: "assets/hope.mp3",
     coverPath: "assets/hope.jpg",
     originalLink: "https://youtu.be/slkyMimmb1M",
@@ -107,9 +113,129 @@ let nasheeds = [
   },
 ];
 
-console.log(nasheeds.length);
+let numberofnasheeds = nasheeds.length;
 
-//loop logic
+const itemlist = document.querySelector(".item");
+const mobitemlist = document.querySelector(".list");
+
+let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
+let nasheedMobInItems = Array.from(
+  document.getElementsByClassName("mobinitem")
+);
+
+// Dynamically creating HTML elements, here Nasheed list items. Giving them photo, title, link, and duration.
+
+for (let i = 0; i < numberofnasheeds; i++) {
+  const items = document.createElement("div");
+  items.classList.add("searching");
+  const insideitem = document.createElement("div");
+  insideitem.classList.add("initem");
+  insideitem.classList.add("playalbum");
+  const insideitemimg = document.createElement("div");
+  const insideitemimage = document.createElement("img");
+  insideitemimage.classList.add("album");
+  insideitemimage.classList.add("nasheedCover");
+  insideitemimage.src = nasheeds[i].coverPath;
+  const flexin = document.createElement("div");
+  flexin.classList.add("inflex");
+  const title = document.createElement("div");
+  const titlename = document.createElement("h5");
+  titlename.classList.add("title");
+  titlename.classList.add("nasheedName");
+  titlename.innerText = nasheeds[i].nasheedName;
+  const link = document.createElement("div");
+  link.classList.add("link");
+  const ogp = document.createElement("p");
+  ogp.classList.add("linktext");
+  const sm = document.createElement("small");
+  // sm.classList.add("text-body-secondary");
+  const anchor = document.createElement("a");
+  anchor.classList.add("originalLink");
+  anchor.target = "_blank";
+  anchor.href = nasheeds[i].originalLink;
+  anchor.innerText = "Original";
+  const durationcontainer = document.createElement("div");
+  const pduration = document.createElement("p");
+  pduration.classList.add("linktext");
+  pduration.classList.add("duration");
+  pduration.innerText = nasheeds[i].nasheedDuration;
+  itemlist.appendChild(items);
+  items.appendChild(insideitem);
+  insideitem.append(insideitemimg, insideitemimage, flexin);
+  flexin.append(title, titlename, link, ogp, sm, anchor, durationcontainer, pduration);
+}
+
+for (let i = 0; i < numberofnasheeds; i++) {
+  const mobitems = document.createElement("div");
+  mobitems.classList.add("mobinitem");
+  mobitems.classList.add("mobplayalbum");
+  const insideitemimg = document.createElement("div");
+  insideitemimg.classList.add("mobcover");
+  const insideitemimage = document.createElement("img");
+  insideitemimage.classList.add("album");
+  insideitemimage.classList.add("nasheedCover");
+  insideitemimage.src = nasheeds[i].coverPath;
+  const flexin = document.createElement("div");
+  flexin.classList.add("inflex");
+  const title = document.createElement("div");
+  const titlename = document.createElement("h5");
+  titlename.classList.add("title");
+  titlename.classList.add("nasheedName");
+  titlename.innerText = nasheeds[i].nasheedName;
+  const link = document.createElement("div");
+  link.classList.add("link");
+  const ogp = document.createElement("p");
+  ogp.classList.add("linktext");
+  const sm = document.createElement("small");
+  // sm.classList.add("text-body-secondary");
+  const anchor = document.createElement("a");
+  anchor.classList.add("originalLink");
+  anchor.target = "_blank";
+  anchor.href = nasheeds[i].originalLink;
+  anchor.innerText = "Original";
+  const durationcontainer = document.createElement("div");
+  const pduration = document.createElement("p");
+  pduration.classList.add("linktext");
+  pduration.classList.add("duration");
+  pduration.innerText = nasheeds[i].nasheedDuration;
+  mobitemlist.appendChild(mobitems);
+  mobitems.append(insideitemimg, insideitemimage, flexin);
+  flexin.append(title, titlename, link, ogp, sm, anchor, durationcontainer, pduration);
+}
+
+// Several Initializations
+
+var forwards = document.getElementById("forward");
+var backwards = document.getElementById("backward");
+var loops = document.getElementById("loop");
+let nasheed = new Audio("assets/asmaulhasna.mp3");
+let masterPlay = document.getElementById("masterPlay");
+let bar = document.getElementById("sliderange");
+let fillval = document.querySelector(".filler");
+var cbox = document.getElementById("cb");
+const hbar = document.querySelector(".ham");
+const mnav = document.querySelector(".list");
+const inputSearch = document.querySelector("[data-search]");
+let nasheedList = Array.from(document.getElementsByClassName("searching"));
+
+// inputSearch.addEventListener("input", (e) => {
+//   const searchNasheed = e.target.value.toLowerCase();
+//   nasheedList.forEach((element) => {
+//     const isVisible = element
+//       .getElementsByClassName("nasheedName")[0]
+//       .innerText.toLowerCase().includes(searchNasheed);
+//     element.getElementsByClassName("initem")[0].classList.toggle("hide", !isVisible);
+//   });
+// });
+
+// HamBar
+
+hbar.addEventListener("click", () => {
+  hbar.classList.toggle("active");
+  mnav.classList.toggle("active");
+});
+
+// loop logic
 
 cbox.addEventListener("change", () => {
   if (cbox.checked == true) {
@@ -121,36 +247,22 @@ cbox.addEventListener("change", () => {
   }
 });
 
-//Nasheeds List
+// Nasheeds List
 
-nasheedInItems.forEach((element, i) => {
-  console.log(element, i);
-  element.getElementsByClassName("nasheedCover")[0].src = nasheeds[i].coverPath;
-  element.getElementsByClassName("nasheedName")[0].innerText =
-    nasheeds[i].nasheedName;
-  element.getElementsByTagName("a")[0].href = nasheeds[i].originalLink;
-  element.getElementsByClassName("duration")[0].innerText =
-    nasheeds[i].nasheedDuration;
-});
+let nasheedItems = Array.from(document.getElementsByClassName("player"));
+var playAlbum = Array.from(document.getElementsByClassName("playalbum"));
+var playMobAlbum = Array.from(document.getElementsByClassName("mobplayalbum"));
 
-nasheedMobInItems.forEach((element, i) => {
-  console.log(element, i);
-  element.getElementsByClassName("nasheedCover")[0].src = nasheeds[i].coverPath;
-  element.getElementsByClassName("nasheedName")[0].innerText =
-    nasheeds[i].nasheedName;
-  element.getElementsByTagName("a")[0].href = nasheeds[i].originalLink;
-  element.getElementsByClassName("duration")[0].innerText =
-    nasheeds[i].nasheedDuration;
-});
+// Clicking on any Listed Nasheed starts playing
 
 playAlbum.forEach((element, i) => {
   element.addEventListener("click", () => {
     nasheed.src = nasheeds[i].filePath;
     document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
-    document.getElementsByClassName("maintitle")[0].innerText =
+    document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
-    document.getElementsByClassName("mainlink")[0].href =
-      nasheeds[i].originalLink;
+    document.getElementsByClassName("originalLink")[0].href =
+      nasheeds[i].originalLink
     if (nasheed.paused) {
       nasheed.play();
       plays.style.display = "none";
@@ -167,9 +279,9 @@ playMobAlbum.forEach((element, i) => {
   element.addEventListener("click", () => {
     nasheed.src = nasheeds[i].filePath;
     document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
-    document.getElementsByClassName("maintitle")[0].innerText =
+    document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
-    document.getElementsByClassName("mainlink")[0].href =
+    document.getElementsByClassName("originalLink")[0].href =
       nasheeds[i].originalLink;
     if (nasheed.paused) {
       nasheed.play();
@@ -183,7 +295,7 @@ playMobAlbum.forEach((element, i) => {
   });
 });
 
-//nasheed change logic
+// nasheed change logic
 
 nasheedItems.forEach((element, i) => {
   console.log(element, i);
@@ -191,6 +303,8 @@ nasheedItems.forEach((element, i) => {
   element.getElementsByClassName("nasheedName")[0].innerText =
     nasheeds[i].nasheedName;
   element.getElementsByTagName("a")[0].href = nasheeds[i].originalLink;
+  element.getElementsByTagName("a")[0].innerHTML = "Original";
+  // AutoPlay
   nasheed.addEventListener("timeupdate", () => {
     console.log("auto");
     if (nasheed.currentTime == nasheed.duration) {
@@ -212,6 +326,7 @@ nasheedItems.forEach((element, i) => {
       plays.style.display = "none";
     }
   });
+
   forwards.addEventListener("click", () => {
     i++;
     if (i == nasheeds.length) {
@@ -293,7 +408,7 @@ nasheedItems.forEach((element, i) => {
   });
 });
 
-//nasheed is getting played and paused
+// nasheed is getting played and paused
 
 masterPlay.addEventListener("click", () => {
   if (nasheed.paused) {
@@ -321,19 +436,26 @@ document.body.addEventListener("keyup", (x) => {
   }
 });
 
-//bar is updating with respect to nasheed time
+// bar is updating with respect to nasheed time
+
+let fillvalpercent;
 
 nasheed.addEventListener("timeupdate", () => {
-  // progress = parseInt((nasheed.currentTime/nasheed.duration)*100);
+  //intprogress = parseInt((nasheed.currentTime/nasheed.duration)*100);
   progress = parseFloat((nasheed.currentTime / nasheed.duration) * 100.0);
   bar.value = progress;
+  function fillvalue() {
+    fillvalpercent = (progress+0.3).toString();
+    return fillvalpercent+"%";
+  }
+  fillval.style.width = fillvalue();
   if (bar.value == 100.0) {
     plays.style.display = "unset";
     pauses.style.display = "none";
   }
 });
 
-//Changing bar will change nasheed current time
+// Changing bar will change nasheed current time
 
 bar.addEventListener("change", () => {
   nasheed.currentTime = (bar.value * nasheed.duration) / 100;
