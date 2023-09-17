@@ -10,6 +10,10 @@ main.style.display = "none";
 window.addEventListener("load", () => {
   loader.style.display = "none";
   main.style.display = "flex";
+  document.body.style.background = "url(assets/aesthetic.gif)";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "100%";
+  document.body.style.backgroundPosition = "center";
 });
 
 let nasheeds = [
