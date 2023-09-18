@@ -152,7 +152,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   const ogp = document.createElement("p");
   ogp.classList.add("linktext");
   const sm = document.createElement("small");
-  // sm.classList.add("text-body-secondary");
   const anchor = document.createElement("a");
   anchor.classList.add("originalLink");
   anchor.target = "_blank";
@@ -166,10 +165,21 @@ for (let i = 0; i < numberofnasheeds; i++) {
   itemlist.appendChild(items);
   items.appendChild(insideitem);
   insideitem.append(insideitemimg, insideitemimage, flexin);
-  flexin.append(title, titlename, link, ogp, sm, anchor, durationcontainer, pduration);
+  flexin.append(
+    title,
+    titlename,
+    link,
+    ogp,
+    sm,
+    anchor,
+    durationcontainer,
+    pduration
+  );
 }
 
 for (let i = 0; i < numberofnasheeds; i++) {
+  const items = document.createElement("div");
+  items.classList.add("mobsearching");
   const mobitems = document.createElement("div");
   mobitems.classList.add("mobinitem");
   mobitems.classList.add("mobplayalbum");
@@ -191,7 +201,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   const ogp = document.createElement("p");
   ogp.classList.add("linktext");
   const sm = document.createElement("small");
-  // sm.classList.add("text-body-secondary");
   const anchor = document.createElement("a");
   anchor.classList.add("originalLink");
   anchor.target = "_blank";
@@ -202,9 +211,19 @@ for (let i = 0; i < numberofnasheeds; i++) {
   pduration.classList.add("linktext");
   pduration.classList.add("duration");
   pduration.innerText = nasheeds[i].nasheedDuration;
-  mobitemlist.appendChild(mobitems);
+  mobitemlist.appendChild(items);
+  items.appendChild(mobitems);
   mobitems.append(insideitemimg, insideitemimage, flexin);
-  flexin.append(title, titlename, link, ogp, sm, anchor, durationcontainer, pduration);
+  flexin.append(
+    title,
+    titlename,
+    link,
+    ogp,
+    sm,
+    anchor,
+    durationcontainer,
+    pduration
+  );
 }
 
 // Several Initializations
@@ -220,17 +239,11 @@ var cbox = document.getElementById("cb");
 const hbar = document.querySelector(".ham");
 const mnav = document.querySelector(".list");
 const inputSearch = document.querySelector("[data-search]");
+const inputMobSearch = document.querySelector("[mob-data-search]");
 let nasheedList = Array.from(document.getElementsByClassName("searching"));
-
-// inputSearch.addEventListener("input", (e) => {
-//   const searchNasheed = e.target.value.toLowerCase();
-//   nasheedList.forEach((element) => {
-//     const isVisible = element
-//       .getElementsByClassName("nasheedName")[0]
-//       .innerText.toLowerCase().includes(searchNasheed);
-//     element.getElementsByClassName("initem")[0].classList.toggle("hide", !isVisible);
-//   });
-// });
+let mobnasheedList = Array.from(
+  document.getElementsByClassName("mobsearching")
+);
 
 // HamBar
 
@@ -266,7 +279,7 @@ playAlbum.forEach((element, i) => {
     document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
     document.getElementsByClassName("originalLink")[0].href =
-      nasheeds[i].originalLink
+      nasheeds[i].originalLink;
     if (nasheed.paused) {
       nasheed.play();
       plays.style.display = "none";
@@ -449,8 +462,8 @@ nasheed.addEventListener("timeupdate", () => {
   progress = parseFloat((nasheed.currentTime / nasheed.duration) * 100.0);
   bar.value = progress;
   function fillvalue() {
-    fillvalpercent = (progress+0.3).toString();
-    return fillvalpercent+"%";
+    fillvalpercent = (progress + 0.3).toString();
+    return fillvalpercent + "%";
   }
   fillval.style.width = fillvalue();
   if (bar.value == 100.0) {
@@ -463,4 +476,44 @@ nasheed.addEventListener("timeupdate", () => {
 
 bar.addEventListener("change", () => {
   nasheed.currentTime = (bar.value * nasheed.duration) / 100;
+});
+
+// Landscape alert
+
+if (
+  navigator.maxTouchPoints > 0 &&
+  /Android|iPhone/i.test(navigator.userAgent)
+) {
+  window
+    .matchMedia("(orientation:portrait)")
+    .addEventListener("change", (e) => {
+      const portrait = e.matches;
+      if (!portrait) {
+        alert("Enable desktop mode for better experience in landscape.");
+      }
+    });
+}
+
+// Searching
+
+inputSearch.addEventListener("input", (e) => {
+  const searchNasheed = e.target.value.toLowerCase();
+  nasheedList.forEach((element) => {
+    const isVisible = element
+      .getElementsByClassName("nasheedName")[0]
+      .innerText.toLowerCase()
+      .includes(searchNasheed);
+    element.classList.toggle("hide", !isVisible);
+  });
+});
+
+inputMobSearch.addEventListener("input", (e) => {
+  const searchNasheed = e.target.value.toLowerCase();
+  mobnasheedList.forEach((element) => {
+    const isVisible = element
+      .getElementsByClassName("nasheedName")[0]
+      .innerText.toLowerCase()
+      .includes(searchNasheed);
+    element.classList.toggle("hide", !isVisible);
+  });
 });
