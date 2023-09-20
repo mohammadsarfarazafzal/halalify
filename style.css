@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Inclusive+Sans&family=Mooli&display=swap");
 
 * {
   margin: 0;
@@ -13,41 +11,25 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background: transparent;
   width: 0;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
-  width: 0;
+  margin-block-start: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00a2ff;
 }
 
 .item::-webkit-scrollbar {
-  width: 0.7rem;
-}
-
-.item::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 50px;
-}
-
-.item::-webkit-scrollbar-track:hover {
-  background: transparent;
-  border-radius: 50px;
-}
-
-.item::-webkit-scrollbar-thumb {
-  width: 1rem;
-  border-radius: 50px;
-  background: url("assets/aesthetic1.gif");
-  background-repeat: no-repeat;
-  background-size: 150px;
-  border: 0rem solid transparent;
-  background-clip: content-box;
-}
-
-.item::-webkit-scrollbar-thumb:hover {
-  background-size: 175px;
+  width: 0.5rem;
 }
 
 #loader {
@@ -68,61 +50,54 @@ body {
   position: relative;
 }
 
+.lyrics {
+  width: 30vw;
+  height: 100vh;
+  position: relative;
+}
+
 .player {
   width: 40vw;
   height: 100vh;
   position: relative;
-  margin: 0;
-  padding: 0;
 }
 
 .backimg {
-  padding: 0;
-  width: 40vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .backgif {
-  width: 30vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   z-index: 1;
-  margin: 0;
-  padding: 0;
 }
 
 .overlay {
   background: linear-gradient(to bottom right, #ff0000, #0000ff);
-  width: 40vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   opacity: 0.3;
-  padding: 0;
   position: relative;
   z-index: 1;
-  margin-top: -100.7vh;
+  margin-top: -100.71vh;
 }
 
 .gifoverlay {
   background: linear-gradient(to top right, #0000ff, #ff0000);
-  width: 30vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   opacity: 0.5;
-  padding: 0;
   position: relative;
   z-index: 2;
-  margin-top: -100.7vh;
-}
-
-.lyrics {
-  width: 30vw;
-  height: 100vh;
+  margin-top: -100.71vh;
 }
 
 .playercard {
-  width: 40vw;
-  height: 100vh;
-  border-radius: 0;
-  margin-top: -100vh;
+  width: 100%;
+  height: 100%;
+  margin-top: -100.71vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -131,128 +106,61 @@ body {
 
 .nav {
   background-color: transparent;
-  width: 40vw;
-  height: 13vh;
+  width: 100%;
+  height: 111px;
   position: sticky;
   display: flex;
   justify-content: space-between;
 }
 
 .info {
+  background-color: transparent;
   display: flex;
   flex-direction: column;
-  padding: 17px 9px;
+  padding: 5px 9px;
+  justify-content: space-evenly;
 }
 
 .list {
   visibility: hidden;
-  height: 87vh;
+  height: 65%;
   overflow-y: scroll;
 }
 
 .controls {
   background-color: transparent;
-  width: 40vw;
-  height: 79px;
+  width: 100%;
+  height: 111px;
   position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
+.slidebar {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .fillbar {
   position: absolute;
   z-index: 1;
-  top: 15.5px;
-  left: 10.9px;
+  top: 20px;
   width: 95%;
-  border-radius: 5px;
-  height: 7px;
+  border-radius: 9px;
+  height: 11px;
   cursor: pointer;
   background-color: white;
 }
 
 .filler {
   display: block;
-  width: 0%;
-  height: 7px;
-  border-radius: 5px;
+  height: 100%;
+  border-radius: 9px;
   animation: breathing 7s linear infinite;
   animation-timing-function: ease-in-out;
-}
-
-.sliderbar {
-  position: relative;
-  z-index: 2;
-  -webkit-appearance: none;
-  width: 95%;
-  border-radius: 5px;
-  height: 7px;
-  cursor: pointer;
-  outline: none;
-  background: transparent;
-  margin-left: 10.9px;
-}
-
-::-webkit-search-cancel-button {
-  display: none;
-}
-
-@supports (-moz-appearance: none) {
-  .fillbar {
-    position: absolute;
-    z-index: 1;
-    top: 18px;
-    left: 10.9px;
-    width: 95%;
-    border-radius: 5px;
-    height: 7px;
-    cursor: pointer;
-    background-color: white;
-  }
-
-  .filler {
-    display: block;
-    width: 0%;
-    height: 7px;
-    border-radius: 5px;
-    animation: breathing 7s linear infinite;
-    animation-timing-function: ease-in-out;
-  }
-
-  .sliderbar {
-    position: relative;
-    z-index: 2;
-    -webkit-appearance: none;
-    width: 95%;
-    border-radius: 5px;
-    height: 7px;
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    margin-left: 10.9px;
-  }
-}
-
-.sliderbar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  background-color: rgb(226, 74, 125);
-}
-
-.sliderbar::-webkit-slider-thumb:hover {
-  -webkit-appearance: none;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
-  background-color: rgb(255, 0, 85);
 }
 
 @keyframes breathing {
@@ -269,15 +177,15 @@ body {
   }
 
   55% {
-    background-color: orange;
+    background-color: rgb(247, 95, 40);
   }
 
   75% {
-    background-color: red;
+    background-color: rgb(235, 49, 49);
   }
 
   90% {
-    background-color: orangered;
+    background-color: rgba(241, 30, 171, 0.87);
   }
 
   100% {
@@ -285,14 +193,48 @@ body {
   }
 }
 
-.playercontrol {
+.sliderbar {
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 2;
+  width: 95%;
+  border-radius: 9px;
+  height: 11px;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+}
+
+.sliderbar::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 25px;
-  height: 19px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(226, 74, 125);
+}
+
+.sliderbar::-webkit-slider-thumb:hover {
+  box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
+  background-color: rgb(255, 0, 85);
+}
+
+.playercontrol {
+  background-color: transparent;
+  width: 33px;
+  height: 33px;
   cursor: pointer;
   fill: white;
 }
 
+.playercontrol:hover {
+  fill: rgb(255, 0, 85);
+}
+
 .playerbtns {
+  width: 100%;
+  background-color: transparent;
   display: flex;
   justify-content: space-evenly;
 }
@@ -310,7 +252,6 @@ body {
 }
 
 .originalLink {
-  padding-top: 9px;
   font-size: small;
   color: #00a2ff;
   text-decoration: none;
@@ -318,8 +259,10 @@ body {
 }
 
 .linktext {
-  font-size: medium;
-  color: white;
+  padding-top: 7px;
+  font-size: small;
+  color: #00a2ff;
+  text-decoration: none;
   font-family: "Barlow", sans-serif;
 }
 
@@ -332,11 +275,45 @@ body {
 }
 
 .item {
-  margin-top: -100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin-top: -100.71vh;
   overflow-y: scroll;
   position: relative;
   z-index: 3;
+}
+
+.searchwrapper {
+  margin-top: 5%;
+  margin-left: 3%;
+  width: 27vw;
+}
+
+#search {
+  background: url("assets/aesthetic1.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 27vw;
+  height: 31px;
+  border: transparent;
+  outline: none;
+  font-family: "Mooli", sans-serif;
+  padding-left: 15px;
+  position: fixed;
+  color: white;
+}
+
+::-webkit-search-cancel-button {
+  display: none;
+}
+
+::placeholder {
+  color: white;
+}
+
+::-moz-placeholder {
+  opacity: 1;
 }
 
 .initem {
@@ -350,41 +327,10 @@ body {
   margin-bottom: 1%;
   margin-left: 3%;
   width: 27vw;
-  /* height: 27vh; */
   height: 150px;
   display: flex;
   justify-content: flex-start;
-}
-
-.searchwrapper {
-  margin-top: 5%;
-  margin-left: 3%;
-  width: 27vw;
-}
-
-#search {
-  /* background: linear-gradient(to bottom right, #ff0000, #0000ff); */
-  background: url("assets/aesthetic1.gif");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 27vw;
-  height: 25px;
-  border-width: 1px;
-  border-color: transparent;
-  outline: none;
-  font-family: "Mooli", sans-serif;
-  padding-left: 15px;
-  position: fixed;
-  color: white;
-}
-
-::placeholder {
-  color: white;
-}
-
-::-moz-placeholder {
-  opacity: 1;
+  cursor: pointer;
 }
 
 .inflex {
@@ -394,23 +340,20 @@ body {
 }
 
 .album {
-  border-radius: 5px;
+  border-radius: 9px;
   width: 13vw;
   height: 100%;
 }
 
-.playalbum {
-  cursor: pointer;
-}
-
 .duration {
+  color: white;
   padding-top: 7px;
   font-size: small;
   font-family: "Inclusive Sans", sans-serif;
 }
 
 .ham {
-  width: 35px;
+  width: 45px;
   display: none;
   cursor: pointer;
   border: none;
@@ -418,14 +361,14 @@ body {
   background: none;
   outline: none;
   position: relative;
-  padding: 0px 5px;
+  padding: 0px 9px;
 }
 
 .ham .hambar,
 .ham:after,
 .ham:before {
   content: " ";
-  display: block;
+  display: none;
   width: 100%;
   height: 5px;
   background-color: white;
@@ -435,7 +378,7 @@ body {
 }
 
 .ham.active:after {
-  transform: rotate(45deg) translate(-9px, -8px);
+  transform: rotate(45deg) translate(-9.5px, -8px);
 }
 
 .ham.active:before {
@@ -446,41 +389,15 @@ body {
   opacity: 0;
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 721px) {
   .ham {
-    width: 35px;
     display: block;
-    cursor: pointer;
-    border: none;
-    appearance: none;
-    background: none;
-    outline: none;
-    position: relative;
   }
 
   .ham .hambar,
   .ham:after,
   .ham:before {
-    content: " ";
     display: block;
-    width: 100%;
-    height: 5px;
-    background-color: white;
-    margin: 6px 0px;
-    border-radius: 3px;
-    transition: 0.3s;
-  }
-
-  .ham.active:after {
-    transform: rotate(45deg) translate(-9px, -8px);
-  }
-
-  .ham.active:before {
-    transform: rotate(-45deg) translate(-8px, 6px);
-  }
-
-  .ham.active .hambar {
-    opacity: 0;
   }
 
   .lyrics {
@@ -495,68 +412,24 @@ body {
     width: 100vw;
   }
 
-  .backimg {
-    width: 100vw;
-  }
-
-  .overlay {
-    background: linear-gradient(to bottom right, #ff0000, #0000ff);
-    width: 100vw;
-    opacity: 0.3;
-  }
-
-  .nasheedtitle {
-    font-size: xx-large;
-    color: white;
-    font-family: "Mooli", sans-serif;
-  }
-
-  .playercard {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-top: -100vh;
-    z-index: 3;
-  }
-
-  .nav {
-    background-color: transparent;
-    width: 100vw;
-    height: 85px;
-    position: sticky;
-  }
-
   .fillbar {
     top: 21px;
   }
 
   .controls {
     background-color: transparent;
-    width: 100vw;
-    height: 81px;
-    position: sticky;
-    justify-content: center;
-    padding: 0;
-    margin-top: 19px;
   }
 
   .playercontrol {
-    width: 25px;
-    cursor: pointer;
+    background-color: transparent;
   }
 
   .playerbtns {
-    margin-top: 9px;
-    display: flex;
-    justify-content: space-evenly;
+    background-color: transparent;
   }
 
   .list {
-    height: 75vh;
-    overflow-y: scroll;
+    height: 71%;
   }
 
   .list.active {
@@ -566,7 +439,7 @@ body {
   }
 
   .mobinitem {
-    margin-left: 75px;
+    margin-left: 43px;
     padding-top: 1%;
     padding-bottom: 1%;
     background-color: transparent;
@@ -575,119 +448,38 @@ body {
     border-right: transparent;
     margin-top: 3%;
     margin-bottom: 1%;
-    width: 55vw;
-    /* height: 15vh; */
-    height: 100px;
+    width: 75vw;
+    height: 125px;
     display: flex;
     justify-content: flex-start;
+    cursor: pointer;
   }
 
   .searchwrapper {
-    margin-top: 3%;
-    margin-left: 75px;
-    width: 55vw;
+    margin-left: 43px;
+    width: 75vw;
   }
 
   #search {
-    /* background: linear-gradient(to bottom right, #ff0000, #0000ff); */
-    background: url("assets/aesthetic1.gif");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 55vw;
-    height: 25px;
-    border-width: 1px;
-    border-color: transparent;
-    outline: none;
-    font-family: "Mooli", sans-serif;
-    padding-left: 15px;
-    position: fixed;
-    color: white;
+    width: 75vw;
   }
 
   .mobcover {
-    height: 100px;
+    height: 95px;
   }
 
   .album {
-    border-radius: 5px;
-    width: 19vw;
-    height: 100%;
+    width: 25vw;
   }
+}
 
-  .mobplayalbum {
-    cursor: pointer;
-  }
-
-  .title {
-    font-size: small;
-    font-family: "Mooli", sans-serif;
-    color: white;
-  }
-
-  .originalLink {
-    font-size: x-small;
-    color: #00a2ff;
-    text-decoration: none;
-    font-family: "Barlow", sans-serif;
-  }
-
-  .duration {
-    font-size: x-small;
-  }
-
+@supports (-moz-appearance: none) {
   .fillbar {
-    position: absolute;
-    z-index: 1;
-    top: 18.5px;
-    left: 10.9px;
-    width: 95%;
-    border-radius: 5px;
-    height: 7px;
-    cursor: pointer;
-    background-color: white;
-  }
-
-  .filler {
-    display: block;
-    width: 0%;
-    height: 7px;
-    border-radius: 5px;
-    animation: breathing 7s linear infinite;
-    animation-timing-function: ease-in-out;
+    top: 21px;
+    height: 9px;
   }
 
   .sliderbar {
-    position: relative;
-    z-index: 2;
-    -webkit-appearance: none;
-    width: 95%;
-    border-radius: 5px;
-    height: 7px;
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    margin-bottom: 13px;
-  }
-
-  .sliderbar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    background-color: rgb(226, 74, 125);
-  }
-
-  .sliderbar::-webkit-slider-thumb:hover {
-    -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
-    background-color: rgb(255, 0, 85);
+    height: 9px;
   }
 }
