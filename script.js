@@ -439,6 +439,27 @@ masterPlay.addEventListener("click", () => {
   }
 });
 
+// function inputting() {
+//   inputSearch.addEventListener("input",()=>{
+//     return true;
+//   });
+//   return false;
+// }
+
+// document.body.addEventListener("keyup", (x) => {
+//   if (x.key == " " && inputting()==false) {
+//       if (nasheed.paused) {
+//         nasheed.play();
+//         plays.style.display = "none";
+//         pauses.style.display = "unset";
+//       } else {
+//         nasheed.pause();
+//         plays.style.display = "unset";
+//         pauses.style.display = "none";
+//       } 
+//   }
+// });
+
 document.body.addEventListener("keyup", (x) => {
   if (x.key == " ") {
     if (nasheed.paused) {
@@ -462,7 +483,7 @@ nasheed.addEventListener("timeupdate", () => {
   progress = parseFloat((nasheed.currentTime / nasheed.duration) * 100.0);
   bar.value = progress;
   function fillvalue() {
-    fillvalpercent = (progress + 0.3).toString();
+    fillvalpercent = (progress + 0.2).toString();
     return fillvalpercent + "%";
   }
   fillval.style.width = fillvalue();
