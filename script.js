@@ -3,6 +3,7 @@ var loader = document.getElementById("loader");
 var main = document.getElementById("mainid");
 var pauses = document.getElementById("pause");
 var plays = document.getElementById("play");
+let nasheedIndex = 0;
 
 pause.style.display = "none";
 main.style.display = "none";
@@ -285,6 +286,7 @@ playAlbum.forEach((element, i) => {
       plays.style.display = "unset";
       pauses.style.display = "none";
     }
+    nasheedIndex=i;
   });
 });
 
@@ -305,6 +307,7 @@ playMobAlbum.forEach((element, i) => {
       plays.style.display = "unset";
       pauses.style.display = "none";
     }
+    nasheedIndex=i;
   });
 });
 
@@ -312,29 +315,29 @@ playMobAlbum.forEach((element, i) => {
 
 // nasheed change logic
 
-nasheedItems.forEach((element, i) => {
-  console.log(element, i);
-  element.getElementsByClassName("nasheedCover")[0].src = nasheeds[i].coverPath;
+nasheedItems.forEach((element) => {
+  console.log(element);
+  element.getElementsByClassName("nasheedCover")[0].src = nasheeds[nasheedIndex].coverPath;
   element.getElementsByClassName("nasheedName")[0].innerText =
-    nasheeds[i].nasheedName;
-  element.getElementsByClassName("originalLink")[0].href = nasheeds[i].originalLink;
+    nasheeds[nasheedIndex].nasheedName;
+  element.getElementsByClassName("originalLink")[0].href = nasheeds[nasheedIndex].originalLink;
   element.getElementsByClassName("originalLink")[0].innerHTML = "Original";
   // AutoPlay
   nasheed.addEventListener("timeupdate", () => {
     console.log("auto");
     if (nasheed.currentTime == nasheed.duration) {
-      i++;
-      if (i == nasheeds.length) {
-        i = 0;
+      nasheedIndex++;
+      if (nasheedIndex == nasheeds.length) {
+        nasheedIndex = 0;
       }
-      console.log(i);
+      console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
-        nasheeds[i].coverPath;
+        nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
-        nasheeds[i].nasheedName;
+        nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
-        nasheeds[i].originalLink;
-      nasheed.src = nasheeds[i].filePath;
+        nasheeds[nasheedIndex].originalLink;
+      nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
       pauses.style.display = "unset";
@@ -343,18 +346,18 @@ nasheedItems.forEach((element, i) => {
   });
 
   forwards.addEventListener("click", () => {
-    i++;
-    if (i == nasheeds.length) {
+    nasheedIndex++;
+    if (nasheedIndex == nasheeds.length) {
       i = 0;
     }
-    console.log(i);
+    console.log(nasheedIndex);
     element.getElementsByClassName("nasheedCover")[0].src =
-      nasheeds[i].coverPath;
+      nasheeds[nasheedIndex].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
-      nasheeds[i].nasheedName;
+      nasheeds[nasheedIndex].nasheedName;
     element.getElementsByClassName("originalLink")[0].href =
-      nasheeds[i].originalLink;
-    nasheed.src = nasheeds[i].filePath;
+      nasheeds[nasheedIndex].originalLink;
+    nasheed.src = nasheeds[nasheedIndex].filePath;
     nasheed.currentTime = 0;
     nasheed.play();
     pauses.style.display = "unset";
@@ -362,18 +365,18 @@ nasheedItems.forEach((element, i) => {
   });
 
   backwards.addEventListener("click", () => {
-    i--;
-    if (i < 0) {
-      i = nasheeds.length - 1;
+    nasheedIndex--;
+    if (nasheedIndex < 0) {
+      nasheedIndex = nasheeds.length - 1;
     }
-    console.log(i);
+    console.log(nasheedIndex);
     element.getElementsByClassName("nasheedCover")[0].src =
-      nasheeds[i].coverPath;
+      nasheeds[nasheedIndex].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
-      nasheeds[i].nasheedName;
+      nasheeds[nasheedIndex].nasheedName;
     element.getElementsByClassName("originalLink")[0].href =
-      nasheeds[i].originalLink;
-    nasheed.src = nasheeds[i].filePath;
+      nasheeds[nasheedIndex].originalLink;
+    nasheed.src = nasheeds[nasheedIndex].filePath;
     nasheed.currentTime = 0;
     nasheed.play();
     pauses.style.display = "unset";
@@ -382,18 +385,18 @@ nasheedItems.forEach((element, i) => {
 
   document.body.addEventListener("keyup", (x) => {
     if (x.key == "ArrowRight") {
-      i++;
-      if (i == nasheeds.length) {
-        i = 0;
+      nasheedIndex++;
+      if (nasheedIndex == nasheeds.length) {
+        nasheedIndex = 0;
       }
-      console.log(i);
+      console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
-        nasheeds[i].coverPath;
+        nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
-        nasheeds[i].nasheedName;
+        nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
-        nasheeds[i].originalLink;
-      nasheed.src = nasheeds[i].filePath;
+        nasheeds[nasheedIndex].originalLink;
+      nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
       pauses.style.display = "unset";
@@ -403,18 +406,18 @@ nasheedItems.forEach((element, i) => {
 
   document.body.addEventListener("keyup", (x) => {
     if (x.key == "ArrowLeft") {
-      i--;
-      if (i < 0) {
-        i = nasheeds.length - 1;
+      nasheedIndex--;
+      if (nasheedIndex < 0) {
+        nasheedIndex = nasheeds.length - 1;
       }
-      console.log(i);
+      console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
-        nasheeds[i].coverPath;
+        nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
-        nasheeds[i].nasheedName;
+        nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
-        nasheeds[i].originalLink;
-      nasheed.src = nasheeds[i].filePath;
+        nasheeds[nasheedIndex].originalLink;
+      nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
       pauses.style.display = "unset";
