@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
   main.style.display = "flex";
   document.body.style.background = "url(assets/aesthetic.gif)";
   document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "100%";
+  document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
 });
 
@@ -23,6 +23,13 @@ let nasheeds = [
     coverPath: "assets/asmaulhasnacover.jpg",
     originalLink: "https://youtu.be/e-KygsbNVGk?si=XKPRQTUK5jdW6Qa0",
     nasheedDuration: "03:36",
+  },
+  {
+    nasheedName: "Ya Ilahi",
+    filePath: "assets/ilahi.mp3",
+    coverPath: "assets/ilahicover.jpg",
+    originalLink: "https://youtu.be/17PmZ_41SG8?si=IPuGAjyvcBCFOlti",
+    nasheedDuration: "04:40",
   },
   {
     nasheedName: "The Way Of Tears",
@@ -149,9 +156,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   titlename.innerText = nasheeds[i].nasheedName;
   const link = document.createElement("div");
   link.classList.add("link");
-  const ogp = document.createElement("p");
-  ogp.classList.add("linktext");
-  const sm = document.createElement("small");
   const anchor = document.createElement("a");
   anchor.classList.add("originalLink");
   anchor.target = "_blank";
@@ -159,7 +163,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   anchor.innerText = "Original";
   const durationcontainer = document.createElement("div");
   const pduration = document.createElement("p");
-  pduration.classList.add("linktext");
   pduration.classList.add("duration");
   pduration.innerText = nasheeds[i].nasheedDuration;
   itemlist.appendChild(items);
@@ -169,8 +172,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
     title,
     titlename,
     link,
-    ogp,
-    sm,
     anchor,
     durationcontainer,
     pduration
@@ -198,9 +199,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   titlename.innerText = nasheeds[i].nasheedName;
   const link = document.createElement("div");
   link.classList.add("link");
-  const ogp = document.createElement("p");
-  ogp.classList.add("linktext");
-  const sm = document.createElement("small");
   const anchor = document.createElement("a");
   anchor.classList.add("originalLink");
   anchor.target = "_blank";
@@ -208,7 +206,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
   anchor.innerText = "Original";
   const durationcontainer = document.createElement("div");
   const pduration = document.createElement("p");
-  pduration.classList.add("linktext");
   pduration.classList.add("duration");
   pduration.innerText = nasheeds[i].nasheedDuration;
   mobitemlist.appendChild(items);
@@ -218,8 +215,6 @@ for (let i = 0; i < numberofnasheeds; i++) {
     title,
     titlename,
     link,
-    ogp,
-    sm,
     anchor,
     durationcontainer,
     pduration
@@ -250,6 +245,7 @@ let mobnasheedList = Array.from(
 hbar.addEventListener("click", () => {
   hbar.classList.toggle("active");
   mnav.classList.toggle("active");
+  document.querySelector(".backimg").classList.toggle("active");
 });
 
 // loop logic
@@ -278,7 +274,7 @@ playAlbum.forEach((element, i) => {
     document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
     document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
-    document.getElementsByClassName("originalLink")[0].href =
+    document.getElementsByClassName("playingLink")[0].href =
       nasheeds[i].originalLink;
     if (nasheed.paused) {
       nasheed.play();
@@ -298,7 +294,7 @@ playMobAlbum.forEach((element, i) => {
     document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
     document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
-    document.getElementsByClassName("originalLink")[0].href =
+    document.getElementsByClassName("playingLink")[0].href =
       nasheeds[i].originalLink;
     if (nasheed.paused) {
       nasheed.play();
@@ -312,6 +308,8 @@ playMobAlbum.forEach((element, i) => {
   });
 });
 
+
+
 // nasheed change logic
 
 nasheedItems.forEach((element, i) => {
@@ -319,8 +317,8 @@ nasheedItems.forEach((element, i) => {
   element.getElementsByClassName("nasheedCover")[0].src = nasheeds[i].coverPath;
   element.getElementsByClassName("nasheedName")[0].innerText =
     nasheeds[i].nasheedName;
-  element.getElementsByTagName("a")[0].href = nasheeds[i].originalLink;
-  element.getElementsByTagName("a")[0].innerHTML = "Original";
+  element.getElementsByClassName("originalLink")[0].href = nasheeds[i].originalLink;
+  element.getElementsByClassName("originalLink")[0].innerHTML = "Original";
   // AutoPlay
   nasheed.addEventListener("timeupdate", () => {
     console.log("auto");
@@ -439,27 +437,6 @@ masterPlay.addEventListener("click", () => {
   }
 });
 
-// function inputting() {
-//   inputSearch.addEventListener("input",()=>{
-//     return true;
-//   });
-//   return false;
-// }
-
-// document.body.addEventListener("keyup", (x) => {
-//   if (x.key == " " && inputting()==false) {
-//       if (nasheed.paused) {
-//         nasheed.play();
-//         plays.style.display = "none";
-//         pauses.style.display = "unset";
-//       } else {
-//         nasheed.pause();
-//         plays.style.display = "unset";
-//         pauses.style.display = "none";
-//       } 
-//   }
-// });
-
 document.body.addEventListener("keyup", (x) => {
   if (x.key == " ") {
     if (nasheed.paused) {
@@ -501,19 +478,19 @@ bar.addEventListener("change", () => {
 
 // Landscape alert
 
-if (
-  navigator.maxTouchPoints > 0 &&
-  /Android|iPhone/i.test(navigator.userAgent)
-) {
-  window
-    .matchMedia("(orientation:portrait)")
-    .addEventListener("change", (e) => {
-      const portrait = e.matches;
-      if (!portrait) {
-        alert("Enable desktop mode for better experience in landscape.");
-      }
-    });
-}
+// if (
+//   navigator.maxTouchPoints > 0 &&
+//   /Android|iPhone/i.test(navigator.userAgent)
+// ) {
+//   window
+//     .matchMedia("(orientation:portrait)")
+//     .addEventListener("change", (e) => {
+//       const portrait = e.matches;
+//       if (!portrait) {
+//         alert("Enable desktop mode for better experience in landscape.");
+//       }
+//     });
+// }
 
 // Searching
 
