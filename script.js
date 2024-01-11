@@ -123,6 +123,13 @@ let nasheeds = [
     originalLink: "https://youtu.be/UA-IfwyOBcg",
     nasheedDuration: "03:44",
   },
+  {
+    nasheedName: "Taweel Al Shawq",
+    filePath: "assets/taweel.mp3",
+    coverPath: "assets/taweel.jpg",
+    originalLink: "https://youtu.be/o2W8_mvLuxU?si=kXR2gRMcIxvE6VfY",
+    nasheedDuration: "05:38",
+  },
 ];
 
 let numberofnasheeds = nasheeds.length;
