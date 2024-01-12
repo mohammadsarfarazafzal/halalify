@@ -33,6 +33,13 @@ let nasheeds = [
     nasheedDuration: "04:40",
   },
   {
+    nasheedName: "PALESTINE",
+    filePath: "assets/palestine.mp3",
+    coverPath: "assets/palestine.jpg",
+    originalLink: "https://youtu.be/FD1ZISZJJzk?si=TLgUxDKGI9WObpLL",
+    nasheedDuration: "03:43",
+  },
+  {
     nasheedName: "The Way Of Tears",
     filePath: "assets/wayoftears.mp3",
     coverPath: "assets/wayoftearscover.jpg",
