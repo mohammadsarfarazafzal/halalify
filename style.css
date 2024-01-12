@@ -20,11 +20,11 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background: white;
+  background: rgb(255, 0, 85);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00a2ff;
+  background: white;
 }
 
 .item::-webkit-scrollbar {
@@ -426,7 +426,7 @@ body {
   .mobinitem {
     padding: 1% 0%;
     background-color: transparent;
-    border: 0.1px solid #00a2ff;
+    border: 0.1px solid white;
     border-left: transparent;
     border-right: transparent;
     margin: 1.5% 0%;
