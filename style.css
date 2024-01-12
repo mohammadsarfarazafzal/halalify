@@ -426,7 +426,11 @@ body {
   .mobinitem {
     padding: 1% 0%;
     background-color: transparent;
+<<<<<<< HEAD
     border: 0.1px solid white;
+=======
+    border: 0.1px solid #ffffff;
+>>>>>>> 75e33f45f14ddd9cc41bfe1f79814b6ebd69c134
     border-left: transparent;
     border-right: transparent;
     margin: 1.5% 0%;
@@ -435,11 +439,7 @@ body {
     display: flex;
     justify-content: flex-start;
     cursor: pointer;
-  }
-
-  .searchwrapper {
-    width: 75vw;
-  }
+  }
 
   #search {
     width: 75vw;
