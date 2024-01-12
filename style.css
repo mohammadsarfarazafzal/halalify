@@ -304,8 +304,8 @@ body {
   width: 27vw;
   height: 45px;
   border: transparent;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
   outline: none;
   font-family: "Mooli", sans-serif;
   padding-left: 15px;
@@ -351,7 +351,7 @@ body {
 
 .album {
   border-radius: 9px;
-  width: 13vw;
+  width: 25%;
   height: 100%;
 }
 
@@ -446,7 +446,7 @@ body {
   }
 
   .album {
-    width: 25vw;
+    width: 35%;
   }
 }
 
