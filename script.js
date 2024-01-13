@@ -137,6 +137,13 @@ let nasheeds = [
     originalLink: "https://youtu.be/o2W8_mvLuxU?si=kXR2gRMcIxvE6VfY",
     nasheedDuration: "05:38",
   },
+  {
+    nasheedName: "Aroosah",
+    filePath: "assets/aroosah.mp3",
+    coverPath: "assets/aroosah.jpg",
+    originalLink: "https://youtu.be/QG2lY-wFrv4?si=eqJnsrBPxQ1OAjyJ",
+    nasheedDuration: "02:59",
+  },
 ];
 
 let numberofnasheeds = nasheeds.length;
