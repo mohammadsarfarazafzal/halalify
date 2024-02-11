@@ -4,6 +4,7 @@ var main = document.getElementById("mainid");
 var pauses = document.getElementById("pause");
 var plays = document.getElementById("play");
 let nasheedIndex = 0;
+let songIndex = 0;
 
 pause.style.display = "none";
 main.style.display = "none";
@@ -11,7 +12,7 @@ main.style.display = "none";
 window.addEventListener("load", () => {
   loader.style.display = "none";
   main.style.display = "flex";
-  document.body.style.background = "url(assets/aesthetic.gif)";
+  document.body.style.backgroundColor = "#0B210E";
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
@@ -146,15 +147,34 @@ let nasheeds = [
   },
 ];
 
+// let songs = [
+//   {
+//     songName: "Downers At Dusk",
+//     filePath: "assets/downers.mp3",
+//     coverPath: "assets/downers.jpg",
+//     originalLink: "https://youtu.be/bg3ryGI9BMY?si=LF7MKfy7IP2Q3rho",
+//     songDuration: "03:30",
+//   },
+//   {
+//     songName: "Gumaan",
+//     filePath: "assets/guman.mp3",
+//     coverPath: "assets/guman.jpg",
+//     originalLink: "https://youtu.be/syOZJNKPEDI?si=YRBkEwMRIc5P9GRT",
+//     songDuration: "04:06",
+//   },
+// ];
+
 let numberofnasheeds = nasheeds.length;
+// let numberofsongs = songs.length;
 
 const itemlist = document.querySelector(".item");
+// const songitemlist = document.querySelector(".songitem");
 const mobitemlist = document.querySelector(".list");
 
-let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
-let nasheedMobInItems = Array.from(
-  document.getElementsByClassName("mobinitem")
-);
+// let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
+// let nasheedMobInItems = Array.from(
+//   document.getElementsByClassName("mobinitem")
+// );
 
 // Dynamically creating HTML elements, here Nasheed list items. Giving them photo, title, link, and duration.
 
@@ -200,6 +220,48 @@ for (let i = 0; i < numberofnasheeds; i++) {
   );
 }
 
+// for (let i = 0; i < numberofsongs; i++) {
+//   const songitems = document.createElement("div");
+//   songitems.classList.add("songsearching");
+//   const insideitem = document.createElement("div");
+//   insideitem.classList.add("songinitem");
+//   insideitem.classList.add("songalbum");
+//   const insideitemimg = document.createElement("div");
+//   const insideitemimage = document.createElement("img");
+//   insideitemimage.classList.add("album");
+//   insideitemimage.classList.add("nasheedCover");
+//   insideitemimage.src = songs[i].coverPath;
+//   const flexin = document.createElement("div");
+//   flexin.classList.add("inflex");
+//   const title = document.createElement("div");
+//   const titlename = document.createElement("h5");
+//   titlename.classList.add("title");
+//   titlename.classList.add("nasheedName");
+//   titlename.innerText = songs[i].songName;
+//   const link = document.createElement("div");
+//   link.classList.add("link");
+//   const anchor = document.createElement("a");
+//   anchor.classList.add("originalLink");
+//   anchor.target = "_blank";
+//   anchor.href = songs[i].originalLink;
+//   anchor.innerText = "Original";
+//   const durationcontainer = document.createElement("div");
+//   const pduration = document.createElement("p");
+//   pduration.classList.add("duration");
+//   pduration.innerText = songs[i].songDuration;
+//   songitemlist.appendChild(songitems);
+//   songitems.appendChild(insideitem);
+//   insideitem.append(insideitemimg, insideitemimage, flexin);
+//   flexin.append(
+//     title,
+//     titlename,
+//     link,
+//     anchor,
+//     durationcontainer,
+//     pduration
+//   );
+// }
+
 for (let i = 0; i < numberofnasheeds; i++) {
   const items = document.createElement("div");
   items.classList.add("mobsearching");
@@ -244,7 +306,11 @@ for (let i = 0; i < numberofnasheeds; i++) {
 }
 
 // Several Initializations
-
+let nasheedInItems = Array.from(document.getElementsByClassName("initem"));
+let songInItems = Array.from(document.getElementsByClassName("songinitem"));
+let nasheedMobInItems = Array.from(
+  document.getElementsByClassName("mobinitem")
+);
 var forwards = document.getElementById("forward");
 var backwards = document.getElementById("backward");
 var loops = document.getElementById("loop");
@@ -257,9 +323,13 @@ const hbar = document.querySelector(".ham");
 const mnav = document.querySelector(".list");
 const inputSearch = document.querySelector("[data-search]");
 const inputMobSearch = document.querySelector("[mob-data-search]");
+const songSearch = document.querySelector("[song-search]");
 let nasheedList = Array.from(document.getElementsByClassName("searching"));
 let mobnasheedList = Array.from(
   document.getElementsByClassName("mobsearching")
+);
+let songList = Array.from(
+  document.getElementsByClassName("songsearching")
 );
 
 // HamBar
@@ -268,6 +338,7 @@ hbar.addEventListener("click", () => {
   hbar.classList.toggle("active");
   mnav.classList.toggle("active");
   document.querySelector(".backimg").classList.toggle("active");
+  document.querySelector(".mobBackCover").classList.toggle("active");
 });
 
 // loop logic
@@ -285,7 +356,9 @@ cbox.addEventListener("change", () => {
 // Nasheeds List
 
 let nasheedItems = Array.from(document.getElementsByClassName("player"));
+let songItems = Array.from(document.getElementsByClassName("player"));
 var playAlbum = Array.from(document.getElementsByClassName("playalbum"));
+let playSong = Array.from(document.getElementsByClassName("songalbum"));
 var playMobAlbum = Array.from(document.getElementsByClassName("mobplayalbum"));
 
 // Clicking on any Listed Nasheed starts playing
@@ -307,14 +380,36 @@ playAlbum.forEach((element, i) => {
       plays.style.display = "unset";
       pauses.style.display = "none";
     }
-    nasheedIndex=i;
+    nasheedIndex = i;
   });
 });
+
+// playSong.forEach((element, i) => {
+//   element.addEventListener("click", () => {
+//     nasheed.src = songs[i].filePath;
+//     document.getElementsByClassName("backimg")[0].src = songs[i].coverPath;
+//     document.getElementsByClassName("nasheedtitle")[0].innerText =
+//       songs[i].songName;
+//     document.getElementsByClassName("playingLink")[0].href =
+//       songs[i].originalLink;
+//     if (nasheed.paused) {
+//       nasheed.play();
+//       plays.style.display = "none";
+//       pauses.style.display = "unset";
+//     } else {
+//       nasheed.pause();
+//       plays.style.display = "unset";
+//       pauses.style.display = "none";
+//     }
+//     songIndex = i;
+//   });
+// });
 
 playMobAlbum.forEach((element, i) => {
   element.addEventListener("click", () => {
     nasheed.src = nasheeds[i].filePath;
     document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
+    document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
     document.getElementsByClassName("nasheedtitle")[0].innerText =
       nasheeds[i].nasheedName;
     document.getElementsByClassName("playingLink")[0].href =
@@ -328,7 +423,7 @@ playMobAlbum.forEach((element, i) => {
       plays.style.display = "unset";
       pauses.style.display = "none";
     }
-    nasheedIndex=i;
+    nasheedIndex = i;
   });
 });
 
@@ -337,8 +432,10 @@ playMobAlbum.forEach((element, i) => {
 // nasheed change logic
 
 nasheedItems.forEach((element) => {
-  console.log(element);
+  // console.log(element);
   element.getElementsByClassName("nasheedCover")[0].src = nasheeds[nasheedIndex].coverPath;
+  element.getElementsByClassName("mobBackCover")[0].src =
+    nasheeds[nasheedIndex].coverPath;
   element.getElementsByClassName("nasheedName")[0].innerText =
     nasheeds[nasheedIndex].nasheedName;
   element.getElementsByClassName("originalLink")[0].href = nasheeds[nasheedIndex].originalLink;
@@ -353,6 +450,8 @@ nasheedItems.forEach((element) => {
       }
       console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
+        nasheeds[nasheedIndex].coverPath;
+      element.getElementsByClassName("mobBackCover")[0].src =
         nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
         nasheeds[nasheedIndex].nasheedName;
@@ -369,10 +468,13 @@ nasheedItems.forEach((element) => {
   forwards.addEventListener("click", () => {
     nasheedIndex++;
     if (nasheedIndex == nasheeds.length) {
-      i = 0;
+      nasheedIndex = 0;
+      // alert("restart");
     }
     console.log(nasheedIndex);
     element.getElementsByClassName("nasheedCover")[0].src =
+      nasheeds[nasheedIndex].coverPath;
+    element.getElementsByClassName("mobBackCover")[0].src =
       nasheeds[nasheedIndex].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
       nasheeds[nasheedIndex].nasheedName;
@@ -392,6 +494,8 @@ nasheedItems.forEach((element) => {
     }
     console.log(nasheedIndex);
     element.getElementsByClassName("nasheedCover")[0].src =
+      nasheeds[nasheedIndex].coverPath;
+    element.getElementsByClassName("mobBackCover")[0].src =
       nasheeds[nasheedIndex].coverPath;
     element.getElementsByClassName("nasheedName")[0].innerText =
       nasheeds[nasheedIndex].nasheedName;
@@ -413,6 +517,8 @@ nasheedItems.forEach((element) => {
       console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
         nasheeds[nasheedIndex].coverPath;
+      element.getElementsByClassName("mobBackCover")[0].src =
+        nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
         nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
@@ -433,6 +539,8 @@ nasheedItems.forEach((element) => {
       }
       console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
+        nasheeds[nasheedIndex].coverPath;
+      element.getElementsByClassName("mobBackCover")[0].src =
         nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("nasheedName")[0].innerText =
         nasheeds[nasheedIndex].nasheedName;
@@ -539,3 +647,14 @@ inputMobSearch.addEventListener("input", (e) => {
     element.classList.toggle("hide", !isVisible);
   });
 });
+
+// songSearch.addEventListener("input", (e) => {
+//   const searchNasheed = e.target.value.toLowerCase();
+//   songList.forEach((element) => {
+//     const isVisible = element
+//       .getElementsByClassName("nasheedName")[0]
+//       .innerText.toLowerCase()
+//       .includes(searchNasheed);
+//     element.classList.toggle("hide", !isVisible);
+//   });
+// });

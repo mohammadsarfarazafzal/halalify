@@ -7,6 +7,7 @@
 
 body {
   background-color: black;
+  /* background-color: #0B210E; */
 }
 
 ::-webkit-scrollbar {
@@ -20,11 +21,12 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background: rgb(255, 0, 85);
+  /* background: rgb(255, 0, 85); */
+  background-color: #90c7fd;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: white;
+  background: #1E90FF;
 }
 
 .item::-webkit-scrollbar {
@@ -49,7 +51,7 @@ body {
   position: relative;
 }
 
-.lyrics {
+.songs {
   width: 30vw;
   height: 100vh;
   position: relative;
@@ -67,14 +69,14 @@ body {
   height: 100%;
 }
 
-.backgif {
+/* .backgif {
   width: 100%;
   height: 100%;
   position: relative;
   z-index: 1;
-}
+} */
 
-.overlay {
+/* .overlay {
   background: linear-gradient(to bottom right, #ff0000, #0000ff);
   width: 100%;
   height: 100%;
@@ -92,7 +94,7 @@ body {
   position: relative;
   z-index: 2;
   margin-top: -100.71vh;
-}
+} */
 
 .playercard {
   width: 100%;
@@ -161,18 +163,18 @@ body {
   border-radius: 9px;
   height: 11px;
   cursor: pointer;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .filler {
   display: block;
   height: 100%;
   border-radius: 9px;
-  animation: breathing 7s linear infinite;
-  animation-timing-function: ease-in-out;
+  background-color: white;
+  /* animation: breathing 7s ease-in-out infinite linear; */
 }
 
-@keyframes breathing {
+/* @keyframes breathing {
   0% {
     background-color: violet;
   }
@@ -200,7 +202,7 @@ body {
   100% {
     background-color: violet;
   }
-}
+} */
 
 .sliderbar {
   -webkit-appearance: none;
@@ -221,12 +223,13 @@ body {
   border-radius: 50%;
   cursor: pointer;
   outline: none;
-  background-color: rgb(226, 74, 125);
+  /* background-color: rgb(226, 74, 125); */
+  background-color: #90c7fd;
 }
 
 .sliderbar::-webkit-slider-thumb:hover {
-  box-shadow: 0px 0px 5px 3px rgb(230, 116, 154);
-  background-color: rgb(255, 0, 85);
+  box-shadow: 0px 0px 5px 3px #90c7fd;
+  background-color: #1E90FF;
 }
 
 .playercontrol {
@@ -238,7 +241,7 @@ body {
 }
 
 .playercontrol:hover {
-  fill: rgb(255, 0, 85);
+  fill: #1E90FF;
 }
 
 .playerbtns {
@@ -263,9 +266,13 @@ body {
 
 .originalLink {
   font-size: small;
-  color: #00a2ff;
+  color: #90c7fd;
   text-decoration: none;
   font-family: "Barlow", sans-serif;
+}
+
+.originalLink:hover{
+  color: #1E90FF;
 }
 
 .duration {
@@ -286,7 +293,7 @@ body {
 .item {
   width: 100%;
   height: 100%;
-  margin-top: -100.71vh;
+  /* margin-top: -100.71vh; */
   overflow-y: scroll;
   position: relative;
   z-index: 3;
@@ -294,6 +301,18 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.songitem {
+  width: 100%;
+  height: 100%;
+  /* margin-top: -100.71vh; */
+  overflow-y: scroll;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .searchwrapper {
   position: sticky;
@@ -321,7 +340,7 @@ body {
 }
 
 ::placeholder {
-  color: #000000;
+  color: #0B210E;
 }
 
 ::-moz-placeholder {
@@ -331,7 +350,21 @@ body {
 .initem {
   padding: 1% 0%;
   background-color: transparent;
-  border: 0.1px solid #ffffff;
+  border: 0.1px solid #90c7fd;
+  border-left: transparent;
+  border-right: transparent;
+  margin: 1.5% 0%;
+  width: 27vw;
+  height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.songinitem {
+  padding: 1% 0%;
+  background-color: transparent;
+  border: 0.1px solid #90c7fd;
   border-left: transparent;
   border-right: transparent;
   margin: 1.5% 0%;
@@ -396,9 +429,16 @@ body {
   opacity: 0;
 }
 
+.mobBackCover{
+  display: none;
+}
+
 @media only screen and (max-width: 521px) {
   .backimg.active {
     filter: opacity(0);
+  }
+  .backimg{
+    filter: blur(5px);
   }
 
   .ham {
@@ -411,7 +451,7 @@ body {
     display: block;
   }
 
-  .lyrics {
+  .songs {
     display: none;
   }
 
@@ -430,7 +470,7 @@ body {
   .mobinitem {
     padding: 1% 0%;
     background-color: transparent;
-    border: 0.1px solid #ffffff;
+    border: 0.1px solid #90c7fd;
     border-left: transparent;
     border-right: transparent;
     margin: 1.5% 0%;
@@ -452,6 +492,18 @@ body {
 
   .album {
     width: 41%;
+  }
+  .mobBackCover{
+    display: unset;
+    width: 75vw;
+    height: 50vh;
+    position: absolute;
+    top: 25vh;
+    left: 12.5vw;
+    border-radius: 9px;
+  }
+  .mobBackCover.active{
+    filter: opacity(0);
   }
 }
 
