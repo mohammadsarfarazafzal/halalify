@@ -114,6 +114,8 @@ body {
   position: sticky;
   top: 0px;
   padding-top: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
   display: flex;
   justify-content: space-between;
   align-items: start;
