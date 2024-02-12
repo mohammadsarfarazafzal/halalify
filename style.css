@@ -160,7 +160,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  backdrop-filter: blur(25px);
 }
 
 .info {
@@ -169,6 +168,7 @@ body {
   flex-direction: column;
   padding: 0px 9px;
   justify-content: space-between;
+  backdrop-filter: blur(25px);
 }
 
 .list {
