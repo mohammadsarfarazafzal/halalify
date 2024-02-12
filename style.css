@@ -51,10 +51,51 @@ body {
   position: relative;
 }
 
-.songs {
+.lyrics {
   width: 30vw;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#yes,
+#no {
+  height: 100vh;
+  width: 50vw;
+  color: white;
+  font-size: xx-large;
+  font-weight: bolder;
+  cursor: pointer;
+  border: solid 1px white;
+  font-family: "Mooli", sans-serif;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.songswithoutmusic,
+.nasheedsHeading {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  height: 100%;
+  width: 100%;
+}
+
+.songsCollage,
+.nasheedsCollage {
+  grid-row: 1;
+  grid-column: 1;
+  width: 49.9vw;
+  height: 100vh;
 }
 
 .player {
@@ -155,6 +196,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .fillbar {
@@ -165,7 +207,7 @@ body {
   border-radius: 9px;
   height: 11px;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.178);
 }
 
 .filler {
@@ -229,10 +271,10 @@ body {
   background-color: #90c7fd;
 }
 
-.sliderbar::-webkit-slider-thumb:hover {
+/* .sliderbar::-webkit-slider-thumb:hover {
   box-shadow: 0px 0px 5px 3px #90c7fd;
   background-color: #1E90FF;
-}
+} */
 
 .playercontrol {
   background-color: transparent;
@@ -240,11 +282,12 @@ body {
   height: 33px;
   cursor: pointer;
   fill: white;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.playercontrol:hover {
+/* .playercontrol:hover {
   fill: #1E90FF;
-}
+} */
 
 .playerbtns {
   width: 100%;
@@ -273,7 +316,7 @@ body {
   font-family: "Barlow", sans-serif;
 }
 
-.originalLink:hover{
+.originalLink:hover {
   color: #1E90FF;
 }
 
@@ -293,17 +336,6 @@ body {
 }
 
 .item {
-  width: 100%;
-  height: 100%;
-  /* margin-top: -100.71vh; */
-  overflow-y: scroll;
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.songitem {
   width: 100%;
   height: 100%;
   /* margin-top: -100.71vh; */
@@ -363,20 +395,6 @@ body {
   cursor: pointer;
 }
 
-.songinitem {
-  padding: 1% 0%;
-  background-color: transparent;
-  border: 0.1px solid #90c7fd;
-  border-left: transparent;
-  border-right: transparent;
-  margin: 1.5% 0%;
-  width: 27vw;
-  height: 150px;
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-}
-
 .inflex {
   flex: 1;
   overflow-x: scroll;
@@ -404,6 +422,7 @@ body {
   outline: none;
   position: relative;
   padding: 0px 9px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .ham .hambar,
@@ -431,15 +450,27 @@ body {
   opacity: 0;
 }
 
-.mobBackCover{
+.mobBackCover {
   display: none;
+}
+
+@media (hover: hover) {
+  .playercontrol:hover {
+    fill: #1E90FF;
+  }
+
+  .sliderbar::-webkit-slider-thumb:hover {
+    box-shadow: 0px 0px 5px 3px #90c7fd;
+    background-color: #1E90FF;
+  }
 }
 
 @media only screen and (max-width: 521px) {
   .backimg.active {
     filter: opacity(0);
   }
-  .backimg{
+
+  .backimg {
     filter: blur(5px);
   }
 
@@ -453,7 +484,7 @@ body {
     display: block;
   }
 
-  .songs {
+  .lyrics {
     display: none;
   }
 
@@ -481,6 +512,7 @@ body {
     display: flex;
     justify-content: flex-start;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
 
@@ -495,7 +527,8 @@ body {
   .album {
     width: 41%;
   }
-  .mobBackCover{
+
+  .mobBackCover {
     display: unset;
     width: 75vw;
     height: 50vh;
@@ -504,8 +537,26 @@ body {
     left: 12.5vw;
     border-radius: 9px;
   }
-  .mobBackCover.active{
+
+  .mobBackCover.active {
     filter: opacity(0);
+  }
+
+  .decision {
+    flex-direction: column-reverse;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #yes,
+  #no {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .nasheedsCollage,
+  .songsCollage {
+    width: 100vw;
+    height: 49.9vh;
   }
 }
 

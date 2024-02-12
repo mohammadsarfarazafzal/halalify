@@ -14,6 +14,14 @@
 
 <body>
   <div id="loader"></div>
+  <div class="decision" id="decide">
+      <div id="no">
+        <img src="assets/songsCollage.png" alt="songs" class="songsCollage">
+        <span class="songswithoutmusic">Songs Without Music</span></div>
+      <div id="yes">
+        <img src="assets/nasheedsCollage.png" class="nasheedsCollage" alt="nasheeds">
+        <span class="nasheedsHeading">Nasheeds</span></div>
+  </div>
   <div class="main" id="mainid">
     <div class="items">
       <!-- <img src="assets/aesthetic.gif" alt="cover" class="backgif" /> -->
@@ -21,7 +29,7 @@
       <div class="item">
         <div class="searchwrapper">
           <label for="search"></label>
-          <input type="search" id="search" data-search placeholder="🔍 Find Nasheeds">
+          <input type="search" id="search" data-search placeholder="🔍 Search">
         </div>
       </div>
     </div>
@@ -42,7 +50,7 @@
         <div class="list">
           <div class="searchwrapper">
             <label for="search"></label>
-            <input type="search" id="search" mob-data-search placeholder="🔍 Find Nasheeds">
+            <input type="search" id="search" mob-data-search placeholder="🔍 Search">
           </div>
         </div>
         <div class="controls">
@@ -81,15 +89,8 @@
         </div>
       </div>
     </div>
-    <div class="songs">
-      <!-- <img src="assets/aesthetic.gif" alt="cover" class="backgif" /> 
-      <div class="gifoverlay"></div>  -->
-      <!-- <div class="songitem">
-        <div class="searchwrapper">
-          <label for="search"></label>
-          <input type="search" id="search" song-search placeholder="🔍 Find Songs Without Music">
-        </div>
-      </div> -->
+    <div class="lyrics">
+
     </div>
   </div>
   <script src="script.js"></script>
