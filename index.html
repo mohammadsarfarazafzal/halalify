@@ -17,10 +17,10 @@
   <div class="decision" id="decide">
       <div id="no">
         <img src="assets/songsCollage.png" alt="songs" class="songsCollage">
-        <span class="songswithoutmusic">Songs Without Music</span></div>
+        <span class="songswithoutmusic"><svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>Songs Without Music</span></div>
       <div id="yes">
         <img src="assets/nasheedsCollage.png" class="nasheedsCollage" alt="nasheeds">
-        <span class="nasheedsHeading">Nasheeds</span></div>
+        <span class="nasheedsHeading">Nasheeds<svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span></div>
   </div>
   <div class="main" id="mainid">
     <div class="items">
@@ -41,7 +41,7 @@
         <div class="nav">
           <div class="info">
             <h5 class="nasheedName nasheedtitle"></h5>
-              <a target="_blank" class="originalLink playingLink">Original</a>
+            <a target="_blank" class="originalLink playingLink">Original</a>
           </div>
           <button class="ham">
             <div class="hambar"></div>
@@ -57,6 +57,13 @@
           <div class="slidebar">
             <span class="fillbar"><span class="filler"></span></span>
             <input type="range" class="sliderbar" min="0" max="100" id="sliderange" value="0" step="0.001" />
+          </div>
+          <div class="timeline">
+            <div id="currentTime">
+              00:00
+            </div>/
+            <div id="length">
+            </div>
           </div>
           <div class="playerbtns">
             <svg class="playercontrol" id="backward" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -85,7 +92,7 @@
                     d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96H320v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320 19.1 320 32V64H160C71.6 64 0 135.6 0 224zm512 64c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 53-43 96-96 96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V448H352c88.4 0 160-71.6 160-160z" />
                 </svg></label>
             </span>
-          </div>
+            </div>
         </div>
       </div>
     </div>

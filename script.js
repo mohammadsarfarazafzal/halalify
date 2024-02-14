@@ -321,7 +321,7 @@ let nasheeds = [
 
 let numberofnasheeds = nasheeds.length;
 let numberofsongs = numberofnasheeds / 2;
-console.log(numberofsongs);
+//console.log(numberofsongs);
 const itemlist = document.querySelector(".item");
 const mobitemlist = document.querySelector(".list");
 
@@ -441,6 +441,8 @@ let nasheedMobInItems;
 var forwards = document.getElementById("forward");
 var backwards = document.getElementById("backward");
 var loops = document.getElementById("loop");
+let nasheedLength = document.getElementById("length");
+let currentDuration = document.getElementById("currentTime");
 let nasheed = new Audio("assets/asmaulhasna.mp3");
 let masterPlay = document.getElementById("masterPlay");
 let bar = document.getElementById("sliderange");
@@ -504,7 +506,7 @@ let songIndex = numberofsongs;
 decisiondiv.addEventListener("click", () => {
   playAlbum.forEach((element, i) => {
     if (decision == 0) {
-      console.log(songIndex + i);
+      //console.log(songIndex + i);
       element.addEventListener("click", () => {
         nasheed.src = nasheeds[songIndex + i].filePath;
         document.getElementsByClassName("backimg")[0].src = nasheeds[songIndex + i].coverPath;
@@ -512,6 +514,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[songIndex + i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[songIndex + i].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[songIndex + i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
           plays.style.display = "none";
@@ -525,7 +529,7 @@ decisiondiv.addEventListener("click", () => {
       });
     }
     if (decision == 1) {
-      console.log(i);
+      //console.log(i);
       element.addEventListener("click", () => {
         nasheed.src = nasheeds[i].filePath;
         document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
@@ -533,6 +537,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[i].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
           plays.style.display = "none";
@@ -550,7 +556,7 @@ decisiondiv.addEventListener("click", () => {
 
   playMobAlbum.forEach((element, i) => {
     if (decision == 0) {
-      console.log(songIndex + i);
+      //console.log(songIndex + i);
       element.addEventListener("click", () => {
         nasheed.src = nasheeds[songIndex + i].filePath;
         document.getElementsByClassName("backimg")[0].src = nasheeds[songIndex + i].coverPath;
@@ -559,6 +565,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[songIndex + i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[songIndex + i].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[songIndex + i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
           plays.style.display = "none";
@@ -572,7 +580,7 @@ decisiondiv.addEventListener("click", () => {
       });
     }
     if (decision == 1) {
-      console.log(i);
+      //console.log(i);
       element.addEventListener("click", () => {
         nasheed.src = nasheeds[i].filePath;
         document.getElementsByClassName("backimg")[0].src = nasheeds[i].coverPath;
@@ -581,6 +589,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[i].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
           plays.style.display = "none";
@@ -613,9 +623,11 @@ decisiondiv.addEventListener("click", () => {
       nasheeds[nasheedIndex].nasheedName;
     element.getElementsByClassName("originalLink")[0].href = nasheeds[nasheedIndex].originalLink;
     element.getElementsByClassName("originalLink")[0].innerHTML = "Original";
+    document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
     // AutoPlay
     nasheed.addEventListener("timeupdate", () => {
-      console.log("auto");
+      //console.log("auto");
       if (nasheed.currentTime == nasheed.duration) {
         nasheedIndex++;
         if (nasheedIndex == numberofsongs && decision == 1) {
@@ -624,7 +636,7 @@ decisiondiv.addEventListener("click", () => {
         if (nasheedIndex == numberofnasheeds && decision == 0) {
           nasheedIndex = numberofsongs;
         }
-        console.log(nasheedIndex);
+        //console.log(nasheedIndex);
         element.getElementsByClassName("nasheedCover")[0].src =
           nasheeds[nasheedIndex].coverPath;
         element.getElementsByClassName("mobBackCover")[0].src =
@@ -633,6 +645,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
         nasheed.play();
@@ -649,7 +663,7 @@ decisiondiv.addEventListener("click", () => {
       if (nasheedIndex == numberofnasheeds && decision == 0) {
         nasheedIndex = numberofsongs;
       }
-      console.log(nasheedIndex);
+      //console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
         nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("mobBackCover")[0].src =
@@ -658,6 +672,8 @@ decisiondiv.addEventListener("click", () => {
         nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
         nasheeds[nasheedIndex].originalLink;
+        document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
       nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
@@ -673,7 +689,7 @@ decisiondiv.addEventListener("click", () => {
       if (nasheedIndex < numberofsongs && decision == 0) {
         nasheedIndex = numberofnasheeds - 1;
       }
-      console.log(nasheedIndex);
+      //console.log(nasheedIndex);
       element.getElementsByClassName("nasheedCover")[0].src =
         nasheeds[nasheedIndex].coverPath;
       element.getElementsByClassName("mobBackCover")[0].src =
@@ -682,6 +698,8 @@ decisiondiv.addEventListener("click", () => {
         nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
         nasheeds[nasheedIndex].originalLink;
+        document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
       nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
@@ -698,7 +716,7 @@ decisiondiv.addEventListener("click", () => {
         if (nasheedIndex == numberofnasheeds && decision == 0) {
           nasheedIndex = numberofsongs;
         }
-        console.log(nasheedIndex);
+        //console.log(nasheedIndex);
         element.getElementsByClassName("nasheedCover")[0].src =
           nasheeds[nasheedIndex].coverPath;
         element.getElementsByClassName("mobBackCover")[0].src =
@@ -707,6 +725,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
         nasheed.play();
@@ -724,7 +744,7 @@ decisiondiv.addEventListener("click", () => {
         if (nasheedIndex < numberofsongs && decision == 0) {
           nasheedIndex = numberofnasheeds - 1;
         }
-        console.log(nasheedIndex);
+        //console.log(nasheedIndex);
         element.getElementsByClassName("nasheedCover")[0].src =
           nasheeds[nasheedIndex].coverPath;
         element.getElementsByClassName("mobBackCover")[0].src =
@@ -733,6 +753,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
+          document.getElementById("length").innerText =
+          nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
         nasheed.play();
@@ -775,6 +797,8 @@ document.body.addEventListener("keyup", (x) => {
 // bar is updating with respect to nasheed time
 
 let fillvalpercent;
+let hasRun = 0;
+let hasRun1 = 0;
 decisiondiv.addEventListener("click", () => {
   nasheed.addEventListener("timeupdate", () => {
     //intprogress = parseInt((nasheed.currentTime/nasheed.duration)*100);
@@ -789,8 +813,34 @@ decisiondiv.addEventListener("click", () => {
       plays.style.display = "unset";
       pauses.style.display = "none";
     }
+    // Timeline
+    function timeNow(){
+      let second = Math.floor(nasheed.currentTime);
+      let minute = second/60;
+      if(second>=60){
+        second=second-(60*Math.floor(minute));
+        if(minute<10 && second<10){
+          return "0"+Math.floor(minute).toString()+":"+"0"+second.toString();
+        }
+        if(second<10 && minute>=10){
+          return Math.floor(minute).toString()+":"+"0"+second.toString();
+        }
+        if(minute<10 && second>=10){
+          return "0"+Math.floor(minute).toString()+":"+second.toString();
+        }
+      }
+      if(minute<10 && second<10){
+        return "0"+Math.floor(minute).toString()+":"+"0"+second.toString();
+      }
+      if(second<10 && minute>=10){
+        return Math.floor(minute).toString()+":"+"0"+second.toString();
+      }
+      if(minute<10 && second>=10){
+        return "0"+Math.floor(minute).toString()+":"+second.toString();
+      }
+    }
+    currentTime.innerText = timeNow();
   });
-
 });
 
 // Changing bar will change nasheed current time
@@ -798,6 +848,32 @@ decisiondiv.addEventListener("click", () => {
 decisiondiv.addEventListener("click", () => {
   bar.addEventListener("change", () => {
     nasheed.currentTime = (bar.value * nasheed.duration) / 100;
+    function timeNow(){
+      let second = Math.round(nasheed.currentTime);
+      let minute = second/60;
+      if(second>60){
+        second=second-(60*Math.floor(minute));
+        if(minute<10 && second<10){
+          return "0"+Math.round(minute).toString()+":"+"0"+second.toString();
+        }
+        if(second<10 && minute>10){
+          return Math.round(minute).toString()+":"+"0"+second.toString();
+        }
+        if(minute<10 && second>10){
+          return "0"+Math.round(minute).toString()+":"+second.toString();
+        }
+      }
+      if(minute<10 && second<10){
+        return "0"+Math.round(minute).toString()+":"+"0"+second.toString();
+      }
+      if(second<10 && minute>10){
+        return Math.round(minute).toString()+":"+"0"+second.toString();
+      }
+      if(minute<10 && second>10){
+        return "0"+Math.round(minute).toString()+":"+second.toString();
+      }
+    }
+    currentTime.innerText = timeNow();
   });
 });
 
@@ -843,3 +919,7 @@ decisiondiv.addEventListener("click", () => {
   });
 
 });
+
+window.onbeforeunload = ()=>{
+  window.location.reload();
+}
