@@ -85,7 +85,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px);
   height: 100%;
   width: 100%;
 }
@@ -152,7 +151,7 @@ body {
   background-color: transparent;
   width: 100%;
   /*height: 111px;*/
-height: fit-content;
+  height: auto;
   position: sticky;
   top: 0px;
   padding-top: 3px;
@@ -161,7 +160,6 @@ height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: start;
-backdrop-filter: blur(25px);
 }
 
 .info {
