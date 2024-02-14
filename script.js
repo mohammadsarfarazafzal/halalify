@@ -514,6 +514,7 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[songIndex + i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[songIndex + i].originalLink;
+document.getElementsByClassName("mobBackCover")[0].src = nasheeds[songIndex + i].coverPath;
           document.getElementById("length").innerText =
           nasheeds[songIndex + i].nasheedDuration;
         if (nasheed.paused) {
@@ -537,6 +538,7 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[i].originalLink;
+document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
           document.getElementById("length").innerText =
           nasheeds[i].nasheedDuration;
         if (nasheed.paused) {
