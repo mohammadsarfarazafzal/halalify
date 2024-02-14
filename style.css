@@ -298,6 +298,10 @@ backdrop-filter: blur(25px);
   justify-content: space-evenly;
   align-items: center;
 }
+.songtime{
+  color: white;
+  font-size: 30px;
+}
 
 .nasheedtitle {
   font-size: xx-large;

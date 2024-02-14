@@ -775,7 +775,7 @@ document.body.addEventListener("keyup", (x) => {
 // bar is updating with respect to nasheed time
 
 let fillvalpercent;
-decisiondiv.addEventListener("click", () => {
+decisiondiv.addEventListener("nasheedk", () => {
   nasheed.addEventListener("timeupdate", () => {
     //intprogress = parseInt((nasheed.currentTime/nasheed.duration)*100);
     progress = parseFloat((nasheed.currentTime / nasheed.duration) * 100.0);
@@ -792,7 +792,25 @@ decisiondiv.addEventListener("click", () => {
   });
 
 });
+//updating time 
+function secondsToMinutesSeconds(seconds) {
+  if (isNaN(seconds) || seconds < 0) {
+      return "00:00";
+  }
 
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+  return `${formattedMinutes}:${formattedSeconds}`;
+}
+nasheed.addEventListener("timeupdate",(a)=>{
+  console.log(nasheed.currentTime, nasheed.duration);
+  document.querySelector(".songtime").innerHTML = `${
+      secondsToMinutesSeconds(nasheed.currentTime)}/${secondsToMinutesSeconds(nasheed.duration)}`
+})
 // Changing bar will change nasheed current time
 
 decisiondiv.addEventListener("click", () => {
