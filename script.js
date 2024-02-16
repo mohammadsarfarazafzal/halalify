@@ -482,8 +482,18 @@ hbar.addEventListener("click", () => {
 // Volume
 
 let vol = document.getElementById("vol");
+let volbtn = document.getElementsByClassName("volumebtn");
+volbtn[0].style.display = "none";
 vol.oninput = function(){
   nasheed.volume = vol.value/100;
+  if (nasheed.volume == 0) {
+    volbtn[1].style.display = "none";
+    volbtn[0].style.display = "unset";
+  }
+  else{
+    volbtn[1].style.display = "unset";
+    volbtn[0].style.display = "none";
+  }
 }
 
 // loop logic

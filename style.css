@@ -477,7 +477,7 @@ body {
   -webkit-appearance: none;
   appearance: none; 
   /* creating a custom design */
-  width: 90px;
+  width: 115px;
   cursor: pointer;
   outline: none;
   /*  slider progress trick  */
@@ -524,6 +524,17 @@ body {
   border: 1px solid #90c7fd;
   /*  slider progress trick  */
   box-shadow: -407px 0 0 400px #1E90FF;
+}
+
+.volume{
+  display: flex;
+  width: max-content;
+  gap: 5px;
+}
+
+.volumebtn{
+  width: 18px;
+  height: 18px;
 }
 
 .timeline{
