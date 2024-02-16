@@ -273,7 +273,7 @@ body {
   cursor: pointer;
   outline: none;
   /* background-color: rgb(226, 74, 125); */
-  background-color: #90c7fd;
+  background-color: #fff;
 }
 
 /* .sliderbar::-webkit-slider-thumb:hover {
@@ -462,14 +462,72 @@ body {
   display: none;
 }
 
-.timeline{
+.timevol{
   font-family: "Inclusive Sans", sans-serif;
   color: white;
   font-size: 15px;
   display: flex;
   align-items: center;
-  justify-content: end;
-  padding-right: 15px;
+  justify-content: space-between;
+  padding: 0px 15px;
+}
+
+#vol {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  width: 90px;
+  cursor: pointer;
+  outline: none;
+  /*  slider progress trick  */
+  overflow: hidden;
+  border-radius: 21px;
+}
+
+/* Track: webkit browsers */
+#vol::-webkit-slider-runnable-track {
+  height: 18px;
+  background: #ffffff;
+  border-radius: 21px;
+}
+
+/* Track: Mozilla Firefox */
+#vol::-moz-range-track {
+  height: 18px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+/* Thumb: webkit */
+#vol::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #90c7fd;
+  /*  slider progress trick  */
+  box-shadow: -404px 0 0 400px #1E90FF;
+}
+
+
+/* Thumb: Firefox */
+#vol::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #90c7fd;
+  /*  slider progress trick  */
+  box-shadow: -407px 0 0 400px #1E90FF;
+}
+
+.timeline{
+  display: flex;
 }
 
 @media (hover: hover) {

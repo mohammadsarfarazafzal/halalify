@@ -479,6 +479,13 @@ hbar.addEventListener("click", () => {
   document.querySelector(".mobBackCover").classList.toggle("active");
 });
 
+// Volume
+
+let vol = document.getElementById("vol");
+vol.oninput = function(){
+  nasheed.volume = vol.value/100;
+}
+
 // loop logic
 
 cbox.addEventListener("change", () => {
