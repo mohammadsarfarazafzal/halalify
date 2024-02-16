@@ -315,7 +315,7 @@ let nasheeds = [
     nasheedDuration: "04:04",
   },
   {
-    nasheedName: "Kana Yari",
+    nasheedName: "Kana Yaari",
     filePath: "assets/kana.mp3",
     fileType: "song",
     coverPath: "assets/kana.jpg",
