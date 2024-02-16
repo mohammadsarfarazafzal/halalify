@@ -15,17 +15,20 @@ window.addEventListener("load", () => {
   loader.style.display = "none";
   decisiondiv.style.display = "flex";
   document.body.style.backgroundColor = "#0B210E";
+  // window.location.replace("http://halalify.onrender.com/#no");
 });
 let decision = -1;
 yes.addEventListener("click", () => {
   decision = 1;
   main.style.display = "flex";
   decisiondiv.style.display = "none";
+  main.requestFullscreen();
 });
 no.addEventListener("click", () => {
   decision = 0;
   main.style.display = "flex";
   decisiondiv.style.display = "none";
+  main.requestFullscreen();
 });
 
 let nasheeds = [
@@ -214,11 +217,11 @@ let nasheeds = [
     nasheedDuration: "05:25",
   },
   {
-    nasheedName: "Duniyaa",
-    filePath: "assets/duniya.mp3",
+    nasheedName: "Tu Jaane Na",
+    filePath: "assets/jane.mp3",
     fileType: "song",
-    coverPath: "assets/duniya.jpg",
-    originalLink: "https://youtu.be/TbkJ5HhFXdg?si=nf_5I0jS9_obdC6B",
+    coverPath: "assets/jane.jpg",
+    originalLink: "https://youtu.be/P8PWN1OmZOA?si=bBza3q_OYNn_2OOF",
     nasheedDuration: "02:32",
   },
   {
