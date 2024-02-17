@@ -10,6 +10,10 @@ body {
     background-color: #000000;
 }
 
+:fullscreen{
+  background-color: #0B210E;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
