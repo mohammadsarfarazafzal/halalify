@@ -474,6 +474,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0px 15px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #vol {
