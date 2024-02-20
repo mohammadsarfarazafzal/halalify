@@ -158,7 +158,6 @@ body {
   align-items: center;
   visibility: hidden;
   margin-top: 5px;
-  overflow-y: scroll;
 }
 
 .controls {
