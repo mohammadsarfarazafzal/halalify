@@ -107,7 +107,7 @@ body {
 
 .player {
   flex: 1;
-  height: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
@@ -132,7 +132,7 @@ body {
 
 .nav {
   background-color: transparent;
-  width: 100.1%;
+  width: 100%;
   height: auto;
   /* position: sticky;
   top: 0px; */
@@ -557,9 +557,9 @@ body {
     display: none;
   }
 
-  .player {
+  /*.player {
     width: 100vw;
-  }
+  }*/
 
   .list.active {
     visibility: visible;
