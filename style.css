@@ -157,7 +157,6 @@ body {
   flex-direction: column;
   align-items: center;
   visibility: hidden;
-  overflow: scroll;
   margin-top: 5px;
 }
 
@@ -578,6 +577,7 @@ body {
     justify-content: flex-start;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+  overflow-y: scroll;
   }
 
 
