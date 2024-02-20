@@ -157,7 +157,7 @@ body {
   flex-direction: column;
   align-items: center;
   visibility: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   margin-top: 5px;
 }
 
