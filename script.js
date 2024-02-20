@@ -23,11 +23,11 @@ yes.addEventListener("click", () => {
   main.style.display = "flex";
   decisiondiv.style.display = "none";
   if (
-      navigator.maxTouchPoints > 0 &&
-      /Android|iPhone/i.test(navigator.userAgent)
-    ){
-      main.requestFullscreen();
-    }
+    navigator.maxTouchPoints > 0 &&
+    /Android|iPhone/i.test(navigator.userAgent)
+  ) {
+    main.requestFullscreen();
+  }
 });
 no.addEventListener("click", () => {
   decision = 0;
@@ -36,7 +36,7 @@ no.addEventListener("click", () => {
   if (
     navigator.maxTouchPoints > 0 &&
     /Android|iPhone/i.test(navigator.userAgent)
-  ){
+  ) {
     main.requestFullscreen();
   }
 });
@@ -484,17 +484,121 @@ hbar.addEventListener("click", () => {
 let vol = document.getElementById("vol");
 let volbtn = document.getElementsByClassName("volumebtn");
 volbtn[0].style.display = "none";
-vol.oninput = function(){
-  nasheed.volume = vol.value/100;
+volbtn[2].style.display = "none";
+vol.oninput = function () {
+  nasheed.volume = vol.value / 100;
+  // console.log(nasheed.volume);
   if (nasheed.volume == 0) {
     volbtn[1].style.display = "none";
+    volbtn[2].style.display = "none";
     volbtn[0].style.display = "unset";
   }
-  else{
-    volbtn[1].style.display = "unset";
+  else if (nasheed.volume < 0.5) {
+    volbtn[1].style.display = "none";
+    volbtn[2].style.display = "unset";
     volbtn[0].style.display = "none";
   }
+  else {
+    volbtn[1].style.display = "unset";
+    volbtn[0].style.display = "none";
+    volbtn[2].style.display = "none";
+  }
 }
+
+let tempVol;
+
+volbtn[1].addEventListener("click", () => {
+  nasheed.volume = vol.value / 100;
+  if (nasheed.volume <= 1) {
+    tempVol = nasheed.volume;
+    nasheed.volume = 0;
+    vol.value = 0;
+    volbtn[1].style.display = "none";
+    volbtn[2].style.display = "none";
+    volbtn[0].style.display = "unset";
+  }
+});
+
+volbtn[2].addEventListener("click", () => {
+  nasheed.volume = vol.value / 100;
+  if (nasheed.volume <= 1) {
+    tempVol = nasheed.volume;
+    nasheed.volume = 0;
+    vol.value = 0;
+    volbtn[1].style.display = "none";
+    volbtn[2].style.display = "none";
+    volbtn[0].style.display = "unset";
+  }
+});
+
+volbtn[0].addEventListener("click", () => {
+  nasheed.volume = vol.value / 100;
+  if (nasheed.volume == 0) {
+    nasheed.volume = tempVol;
+    vol.value = tempVol * 100;
+    if (tempVol > 0.5) {
+      volbtn[1].style.display = "unset";
+      volbtn[0].style.display = "none";
+      volbtn[2].style.display = "none";
+    }
+    else {
+      volbtn[1].style.display = "none";
+      volbtn[0].style.display = "none";
+      volbtn[2].style.display = "unset";
+    }
+  }
+});
+
+decisiondiv.addEventListener("click",()=>{
+  document.body.addEventListener("keydown", (x) => {
+    nasheed.volume = vol.value / 100;
+    if (x.key == "+") {
+      if (nasheed.volume < 1) {
+        nasheed.volume = nasheed.volume + 0.1;
+        vol.value = nasheed.volume * 100;
+        // console.log(nasheed.volume);
+        if (nasheed.volume == 0) {
+          volbtn[1].style.display = "none";
+          volbtn[2].style.display = "none";
+          volbtn[0].style.display = "unset";
+        }
+        else if (nasheed.volume < 0.5) {
+          volbtn[1].style.display = "none";
+          volbtn[2].style.display = "unset";
+          volbtn[0].style.display = "none";
+        }
+        else {
+          volbtn[1].style.display = "unset";
+          volbtn[0].style.display = "none";
+          volbtn[2].style.display = "none";
+        }
+      }
+    }
+    if (x.key == "-") {
+      if(nasheed.volume > 0) {
+        nasheed.volume = nasheed.volume - 0.1;
+        // console.log(nasheed.volume);
+        vol.value = nasheed.volume * 100;
+        if (nasheed.volume == 0) {
+          volbtn[1].style.display = "none";
+          volbtn[2].style.display = "none";
+          volbtn[0].style.display = "unset";
+        }
+        else if (nasheed.volume < 0.5) {
+          volbtn[1].style.display = "none";
+          volbtn[2].style.display = "unset";
+          volbtn[0].style.display = "none";
+        }
+        else {
+          volbtn[1].style.display = "unset";
+          volbtn[0].style.display = "none";
+          volbtn[2].style.display = "none";
+        }
+      }
+    }
+  });
+  
+});
 
 // loop logic
 
@@ -544,8 +648,8 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[songIndex + i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[songIndex + i].originalLink;
-document.getElementsByClassName("mobBackCover")[0].src = nasheeds[songIndex + i].coverPath;
-          document.getElementById("length").innerText =
+        document.getElementsByClassName("mobBackCover")[0].src = nasheeds[songIndex + i].coverPath;
+        document.getElementById("length").innerText =
           nasheeds[songIndex + i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
@@ -568,8 +672,8 @@ document.getElementsByClassName("mobBackCover")[0].src = nasheeds[songIndex + i]
           nasheeds[i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[i].originalLink;
-document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
-          document.getElementById("length").innerText =
+        document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
+        document.getElementById("length").innerText =
           nasheeds[i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
@@ -597,7 +701,7 @@ document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
           nasheeds[songIndex + i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[songIndex + i].originalLink;
-          document.getElementById("length").innerText =
+        document.getElementById("length").innerText =
           nasheeds[songIndex + i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
@@ -621,7 +725,7 @@ document.getElementsByClassName("mobBackCover")[0].src = nasheeds[i].coverPath;
           nasheeds[i].nasheedName;
         document.getElementsByClassName("playingLink")[0].href =
           nasheeds[i].originalLink;
-          document.getElementById("length").innerText =
+        document.getElementById("length").innerText =
           nasheeds[i].nasheedDuration;
         if (nasheed.paused) {
           nasheed.play();
@@ -656,7 +760,7 @@ decisiondiv.addEventListener("click", () => {
     element.getElementsByClassName("originalLink")[0].href = nasheeds[nasheedIndex].originalLink;
     element.getElementsByClassName("originalLink")[0].innerHTML = "Original";
     document.getElementById("length").innerText =
-          nasheeds[nasheedIndex].nasheedDuration;
+      nasheeds[nasheedIndex].nasheedDuration;
     // AutoPlay
     nasheed.addEventListener("timeupdate", () => {
       //console.log("auto");
@@ -677,7 +781,7 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
-          document.getElementById("length").innerText =
+        document.getElementById("length").innerText =
           nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
@@ -704,8 +808,8 @@ decisiondiv.addEventListener("click", () => {
         nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
         nasheeds[nasheedIndex].originalLink;
-        document.getElementById("length").innerText =
-          nasheeds[nasheedIndex].nasheedDuration;
+      document.getElementById("length").innerText =
+        nasheeds[nasheedIndex].nasheedDuration;
       nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
@@ -730,8 +834,8 @@ decisiondiv.addEventListener("click", () => {
         nasheeds[nasheedIndex].nasheedName;
       element.getElementsByClassName("originalLink")[0].href =
         nasheeds[nasheedIndex].originalLink;
-        document.getElementById("length").innerText =
-          nasheeds[nasheedIndex].nasheedDuration;
+      document.getElementById("length").innerText =
+        nasheeds[nasheedIndex].nasheedDuration;
       nasheed.src = nasheeds[nasheedIndex].filePath;
       nasheed.currentTime = 0;
       nasheed.play();
@@ -757,7 +861,7 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
-          document.getElementById("length").innerText =
+        document.getElementById("length").innerText =
           nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
@@ -765,9 +869,6 @@ decisiondiv.addEventListener("click", () => {
         pauses.style.display = "unset";
         plays.style.display = "none";
       }
-    });
-
-    document.body.addEventListener("keyup", (x) => {
       if (x.key == "ArrowLeft") {
         nasheedIndex--;
         if (nasheedIndex < 0 && decision == 1) {
@@ -785,7 +886,7 @@ decisiondiv.addEventListener("click", () => {
           nasheeds[nasheedIndex].nasheedName;
         element.getElementsByClassName("originalLink")[0].href =
           nasheeds[nasheedIndex].originalLink;
-          document.getElementById("length").innerText =
+        document.getElementById("length").innerText =
           nasheeds[nasheedIndex].nasheedDuration;
         nasheed.src = nasheeds[nasheedIndex].filePath;
         nasheed.currentTime = 0;
@@ -812,18 +913,21 @@ masterPlay.addEventListener("click", () => {
   }
 });
 
-document.body.addEventListener("keyup", (x) => {
-  if (x.key == " ") {
-    if (nasheed.paused) {
-      nasheed.play();
-      plays.style.display = "none";
-      pauses.style.display = "unset";
-    } else {
-      nasheed.pause();
-      plays.style.display = "unset";
-      pauses.style.display = "none";
+decisiondiv.addEventListener("click",()=>{
+  document.body.addEventListener("keyup", (x) => {
+    if (x.key == " ") {
+      if (nasheed.paused) {
+        nasheed.play();
+        plays.style.display = "none";
+        pauses.style.display = "unset";
+      } else {
+        nasheed.pause();
+        plays.style.display = "unset";
+        pauses.style.display = "none";
+      }
     }
-  }
+  });
+  
 });
 
 // bar is updating with respect to nasheed time
@@ -846,29 +950,29 @@ decisiondiv.addEventListener("click", () => {
       pauses.style.display = "none";
     }
     // Timeline
-    function timeNow(){
+    function timeNow() {
       let second = Math.floor(nasheed.currentTime);
-      let minute = second/60;
-      if(second>=60){
-        second=second-(60*Math.floor(minute));
-        if(minute<10 && second<10){
-          return "0"+Math.floor(minute).toString()+":"+"0"+second.toString();
+      let minute = second / 60;
+      if (second >= 60) {
+        second = second - (60 * Math.floor(minute));
+        if (minute < 10 && second < 10) {
+          return "0" + Math.floor(minute).toString() + ":" + "0" + second.toString();
         }
-        if(second<10 && minute>=10){
-          return Math.floor(minute).toString()+":"+"0"+second.toString();
+        if (second < 10 && minute >= 10) {
+          return Math.floor(minute).toString() + ":" + "0" + second.toString();
         }
-        if(minute<10 && second>=10){
-          return "0"+Math.floor(minute).toString()+":"+second.toString();
+        if (minute < 10 && second >= 10) {
+          return "0" + Math.floor(minute).toString() + ":" + second.toString();
         }
       }
-      if(minute<10 && second<10){
-        return "0"+Math.floor(minute).toString()+":"+"0"+second.toString();
+      if (minute < 10 && second < 10) {
+        return "0" + Math.floor(minute).toString() + ":" + "0" + second.toString();
       }
-      if(second<10 && minute>=10){
-        return Math.floor(minute).toString()+":"+"0"+second.toString();
+      if (second < 10 && minute >= 10) {
+        return Math.floor(minute).toString() + ":" + "0" + second.toString();
       }
-      if(minute<10 && second>=10){
-        return "0"+Math.floor(minute).toString()+":"+second.toString();
+      if (minute < 10 && second >= 10) {
+        return "0" + Math.floor(minute).toString() + ":" + second.toString();
       }
     }
     currentTime.innerText = timeNow();
@@ -880,29 +984,29 @@ decisiondiv.addEventListener("click", () => {
 decisiondiv.addEventListener("click", () => {
   bar.addEventListener("change", () => {
     nasheed.currentTime = (bar.value * nasheed.duration) / 100;
-    function timeNow(){
+    function timeNow() {
       let second = Math.round(nasheed.currentTime);
-      let minute = second/60;
-      if(second>60){
-        second=second-(60*Math.floor(minute));
-        if(minute<10 && second<10){
-          return "0"+Math.round(minute).toString()+":"+"0"+second.toString();
+      let minute = second / 60;
+      if (second > 60) {
+        second = second - (60 * Math.floor(minute));
+        if (minute < 10 && second < 10) {
+          return "0" + Math.round(minute).toString() + ":" + "0" + second.toString();
         }
-        if(second<10 && minute>10){
-          return Math.round(minute).toString()+":"+"0"+second.toString();
+        if (second < 10 && minute > 10) {
+          return Math.round(minute).toString() + ":" + "0" + second.toString();
         }
-        if(minute<10 && second>10){
-          return "0"+Math.round(minute).toString()+":"+second.toString();
+        if (minute < 10 && second > 10) {
+          return "0" + Math.round(minute).toString() + ":" + second.toString();
         }
       }
-      if(minute<10 && second<10){
-        return "0"+Math.round(minute).toString()+":"+"0"+second.toString();
+      if (minute < 10 && second < 10) {
+        return "0" + Math.round(minute).toString() + ":" + "0" + second.toString();
       }
-      if(second<10 && minute>10){
-        return Math.round(minute).toString()+":"+"0"+second.toString();
+      if (second < 10 && minute > 10) {
+        return Math.round(minute).toString() + ":" + "0" + second.toString();
       }
-      if(minute<10 && second>10){
-        return "0"+Math.round(minute).toString()+":"+second.toString();
+      if (minute < 10 && second > 10) {
+        return "0" + Math.round(minute).toString() + ":" + second.toString();
       }
     }
     currentTime.innerText = timeNow();
@@ -952,6 +1056,6 @@ decisiondiv.addEventListener("click", () => {
 
 });
 
-window.onbeforeunload = ()=>{
+window.onbeforeunload = () => {
   window.location.reload();
 }

@@ -53,13 +53,13 @@ body {
 .items {
   width: 30vw;
   height: 100vh;
-  position: relative;
+  /* position: relative; */
 }
 
 .lyrics {
   width: 30vw;
   height: 100vh;
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
 }
@@ -72,7 +72,8 @@ body {
   font-size: xx-large;
   font-weight: bolder;
   cursor: pointer;
-  border: solid 1px white;
+  border-left: solid 1px white;
+  border-right: solid 1px white;
   font-family: "Mooli", sans-serif;
   box-sizing: border-box;
   display: grid;
@@ -105,55 +106,28 @@ body {
 }
 
 .player {
-  /* width: 40vw; */
   flex: 1;
   height: 100%;
-  position: relative;
-  padding:0;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
 }
 
 .backimg {
   width: 100%;
   height: 100%;
+  grid-row: 1;
+  grid-column: 1;
 }
-
-/* .backgif {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-} */
-
-/* .overlay {
-  background: linear-gradient(to bottom right, #ff0000, #0000ff);
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
-  position: relative;
-  z-index: 1;
-  margin-top: -100.71vh;
-}
-
-.gifoverlay {
-  background: linear-gradient(to top right, #0000ff, #ff0000);
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  position: relative;
-  z-index: 2;
-  margin-top: -100.71vh;
-} */
 
 .playercard {
   width: 100%;
   height: 100%;
-  margin-top: calc(-100vh - 5px);
+  grid-row: 1;
+  grid-column: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  z-index: 2;
 }
 
 .nav {
@@ -191,7 +165,6 @@ body {
   background-color: transparent;
   width: 100%;
   height: 111px;
-  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -349,13 +322,10 @@ body {
 .item {
   width: 100%;
   height: 100%;
-  /* margin-top: -100.71vh; */
-  overflow-y: scroll;
-  position: relative;
-  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 
@@ -367,8 +337,6 @@ body {
 
 #search {
   background: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center;
   width: 27vw;
   height: 45px;
   border: transparent;
@@ -540,9 +508,14 @@ body {
 .volumebtn{
   width: 18px;
   height: 18px;
+  cursor: pointer;
 }
 
 .timeline{
+  display: flex;
+}
+
+.decision{
   display: flex;
 }
 
