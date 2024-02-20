@@ -152,12 +152,14 @@ body {
 }
 
 .list {
-  flex: 1;
+  /*flex: 1;*/
+height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   visibility: hidden;
   margin-top: 5px;
+  overflow-y: scroll;
 }
 
 .controls {
@@ -577,7 +579,6 @@ body {
     justify-content: flex-start;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-  overflow-y: scroll;
   }
 
 
