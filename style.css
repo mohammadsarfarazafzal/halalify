@@ -132,7 +132,7 @@ body {
 
 .nav {
   background-color: transparent;
-  width: 100.1%;
+  width: 100%;
   height: auto;
   /* position: sticky;
   top: 0px; */
@@ -158,6 +158,10 @@ body {
   flex-direction: column;
   align-items: center;
   visibility: hidden;
+<<<<<<< HEAD
+=======
+  margin-top: 5px;
+>>>>>>> 77c0591006bcd0cd4e9ca4df2e0faa8bd8cb1049
   overflow-y: scroll;
 }
 
@@ -557,9 +561,9 @@ body {
     display: none;
   }
 
-  .player {
+  /*.player {
     width: 100vw;
-  }
+  }*/
 
   .list.active {
     visibility: visible;
