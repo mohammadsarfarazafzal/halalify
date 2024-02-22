@@ -22,23 +22,23 @@ yes.addEventListener("click", () => {
   decision = 1;
   main.style.display = "flex";
   decisiondiv.style.display = "none";
-  if (
-    navigator.maxTouchPoints > 0 &&
-    /Android|iPhone/i.test(navigator.userAgent)
-  ) {
-    main.requestFullscreen();
-  }
+  // if (
+  //   navigator.maxTouchPoints > 0 &&
+  //   /Android|iPhone/i.test(navigator.userAgent)
+  // ) {
+  //   main.requestFullscreen();
+  // }
 });
 no.addEventListener("click", () => {
   decision = 0;
   main.style.display = "flex";
   decisiondiv.style.display = "none";
-  if (
-    navigator.maxTouchPoints > 0 &&
-    /Android|iPhone/i.test(navigator.userAgent)
-  ) {
-    main.requestFullscreen();
-  }
+  // if (
+  //   navigator.maxTouchPoints > 0 &&
+  //   /Android|iPhone/i.test(navigator.userAgent)
+  // ) {
+  //   main.requestFullscreen();
+  // }
 });
 
 let nasheeds = [
