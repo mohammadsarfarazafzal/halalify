@@ -515,10 +515,6 @@ body {
   display: flex;
 }
 
-.decision{
-  display: flex;
-}
-
 @media (hover: hover) {
   .playercontrol:hover {
     fill: #1E90FF;
@@ -616,6 +612,7 @@ body {
   #no {
     width: 100vw;
     height: 50vh;
+    border: solid 1px white;
   }
 
   .nasheedsCollage,
