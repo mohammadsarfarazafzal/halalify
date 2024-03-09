@@ -187,6 +187,14 @@ let nasheeds = [
     nasheedDuration: "02:59",
   },
   {
+    nasheedName: "Ya Quluban",
+    filePath: "assets/quluban.mp3",
+    fileType: "nasheed",
+    coverPath: "assets/quluban.jpg",
+    originalLink: "https://youtu.be/WsRwfLLbHvc?si=tiRPKYXQ1gUbJtuH",
+    nasheedDuration: "03:10",
+  },
+  {
     nasheedName: "Kahani Suno",
     filePath: "assets/kahani.mp3",
     fileType: "song",
@@ -201,6 +209,22 @@ let nasheeds = [
     coverPath: "assets/mansoob.jpg",
     originalLink: "https://youtu.be/KA4APfVz5I8?si=fqgYXYYd5hY5olZh",
     nasheedDuration: "02:32",
+  },
+  {
+    nasheedName: "Jurmana",
+    filePath: "assets/jurmana.mp3",
+    fileType: "song",
+    coverPath: "assets/jurmana.jpg",
+    originalLink: "https://youtu.be/-fVtSHPg040?si=WDmnP5zoLzNfAh5T",
+    nasheedDuration: "02:14",
+  },
+  {
+    nasheedName: "Kana Yaari",
+    filePath: "assets/kana.mp3",
+    fileType: "song",
+    coverPath: "assets/kana.jpg",
+    originalLink: "https://youtu.be/zQDAi8tI-cU?si=4qh8aAUGDMegMi8A",
+    nasheedDuration: "02:39",
   },
   {
     nasheedName: "Downers At Dusk",
@@ -313,14 +337,6 @@ let nasheeds = [
     coverPath: "assets/aaram.jpg",
     originalLink: "https://youtu.be/J7ck984Qhso?si=axWQ-4JgsPn0ry7S",
     nasheedDuration: "04:04",
-  },
-  {
-    nasheedName: "Kana Yaari",
-    filePath: "assets/kana.mp3",
-    fileType: "song",
-    coverPath: "assets/kana.jpg",
-    originalLink: "https://youtu.be/zQDAi8tI-cU?si=4qh8aAUGDMegMi8A",
-    nasheedDuration: "02:39",
   },
   {
     nasheedName: "Pasoori",

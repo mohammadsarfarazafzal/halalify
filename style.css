@@ -93,6 +93,7 @@ body {
   justify-content: center;
   align-items: center;
   backdrop-filter: brightness(35%);
+  -webkit-backdrop-filter: brightness(35%);
   height: 100%;
   width: 100%;
 }
@@ -140,6 +141,7 @@ body {
   justify-content: space-between;
   align-items: center;
   backdrop-filter: brightness(75%);
+  -webkit-backdrop-filter: brightness(75%);
   padding: 5px 8px;
   box-sizing: border-box;
 }
@@ -170,6 +172,7 @@ body {
   justify-content: space-evenly;
   /* align-items: center; */
   backdrop-filter: brightness(75%);
+  -webkit-backdrop-filter: brightness(75%);
 }
 
 .slidebar {
@@ -247,6 +250,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
+  /* border: 0.5px solid #1E90FF; */
   cursor: pointer;
   outline: none;
   /* background-color: rgb(226, 74, 125); */
