@@ -195,6 +195,14 @@ let nasheeds = [
     nasheedDuration: "03:10",
   },
   {
+    nasheedName: "Hasn't Death Called You",
+    filePath: "assets/death.mp3",
+    fileType: "nasheed",
+    coverPath: "assets/death.jpg",
+    originalLink: "https://youtu.be/i6dBNToNZ9o?si=rVvaUBkUBHfV5N22",
+    nasheedDuration: "04:02",
+  },
+  {
     nasheedName: "Kahani Suno",
     filePath: "assets/kahani.mp3",
     fileType: "song",
@@ -225,6 +233,14 @@ let nasheeds = [
     coverPath: "assets/kana.jpg",
     originalLink: "https://youtu.be/zQDAi8tI-cU?si=4qh8aAUGDMegMi8A",
     nasheedDuration: "02:39",
+  },
+  {
+    nasheedName: "Gulaab",
+    filePath: "assets/gulab.mp3",
+    fileType: "song",
+    coverPath: "assets/gulab.jpg",
+    originalLink: "https://youtu.be/5Z9oa3gMX5s?si=ZcQ3hli6G4K3--cz",
+    nasheedDuration: "02:08",
   },
   {
     nasheedName: "Downers At Dusk",
